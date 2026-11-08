@@ -14,6 +14,12 @@ For this workbook in particular:
 - No slogan-style shorthand (compact catchphrases like "experience first, name second"). Say the plain thing in a full sentence.
 - The core idea is "your clinical eye and your teaching eye."
 
+## Outcomes
+
+The workbook holds to the two published Week 7 objectives, word for word. Every chapter works toward one of them.
+- **Evaluate:** Evaluate the benefits, risks, and ethics of generative AI in teaching and assessment. (Chapters 1 to 4)
+- **Create:** Design an AI-informed teaching approach and a clear course AI-use expectation for your context. (Chapters 5 and 6; Part 3 carries it into the course)
+
 ## Look
 
 Lean into AVTE branding, not OCTC's.
