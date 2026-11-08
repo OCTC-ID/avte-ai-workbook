@@ -22,6 +22,23 @@ The workbook holds to the two published Week 7 objectives, word for word. Every 
 
 Nothing is submitted for grading. Chapter 6 ends with a one-page "Week 7 takeaway" (the revised assignment and the AI-use statement) that participants save as a PDF and post in a follow-up discussion, then reply to two colleagues. Evaluate is met through the work itself and needs no separate submission.
 
+## Alignment map
+
+The line from start to finish. The academy objective this week rolls up to is "Evaluate the appropriate, ethical use of AI tools in teaching and assessment." Each chapter page shows the exact Week 7 objective it works toward in an `objective-tag` box.
+
+| Chapter | Objective | What it covers | What the participant produces |
+|---|---|---|---|
+| 1 | Evaluate | Where AI helps, where it slips, what stays out | Readiness check |
+| 2 | Evaluate | Benefits and risks from the learner's seat; what they held back | Four Padlet reflections |
+| 3 | Evaluate | The risk to one of their own tests | Score; passed, partly, or failed |
+| TILT review | Gets ready for Create | Purpose, Task, Criteria | Which part is thinnest |
+| 4 | Evaluate | Clinical eye and teaching eye on the Chapter 3 result | One benefit, one risk, one ethical line for their teaching |
+| 5 | Create (AI-informed teaching approach) | One change, based on what AI did, then a re-test | The revised part and the one change |
+| 6 | Create (clear course AI-use expectation) | Course-level expectation, then a label and statement for the changed assignment | The course expectation, label, and statement |
+| Takeaway | Both | `chapters/week7-takeaway.html` pulls the answers above from the same browser, grouped under each objective | One-page PDF posted in the Resource Exchange |
+
+Answers from other chapters are read with `data-from="page-stem:key"` (see `loadFrom` in `js/book.js`). Renaming a chapter file or a `data-save` key breaks the takeaway, so update both together.
+
 ## Look
 
 Lean into AVTE branding, not OCTC's.
@@ -40,7 +57,7 @@ Lean into AVTE branding, not OCTC's.
 
 ## Content rules
 
-- SEE Framework (AI for Education): describe it in our own words, cite and link it, adapt activity formats with an "adapted from" line. Never reproduce its tables, graphics, reflection questions, or wording.
+- SEE Framework (AI for Education, https://www.aiforeducation.io/the-see-framework-for-generative-ai-literacy; Stephanie completed their SEE Train-the-Trainer in August 2026): describe it in our own words, cite and link it, adapt activity formats with an "adapted from" line. Never reproduce its tables, graphics, reflection questions, or wording.
 - TILT (Winkelmes): an optional, skippable review page in Part 1 (`chapters/tilt-review.html`), written for people who may have seen TILT many times. Chapter 5's revision planner uses its plain questions (Why it matters / What to do / What good looks like) with the TILT terms beside them. Don't re-teach it anywhere else. TILT Higher Ed materials are CC BY-NC-SA 4.0 (same as this workbook), so adapt them with credit. Chapter 5's revision planner follows the flow of Stephanie's TILT reflection worksheet: the assignment as it is now, the revised version, one change I'll make, and support I need. Leave out Kentucky Essential Skills references; this audience is national.
 - The Padlet wall is embedded in Chapter 2 and is password protected. The password stays in Canvas, never in this public repo, and so does anything about participants. After the Fall 2026 cohort, replace the embed with a short note that the wall was for that cohort.
 - Clinical content (cases, examples) gets a field check from Laura Neely before release.
