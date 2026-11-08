@@ -24,6 +24,12 @@ Answers save in the reader's browser (`localStorage`). Nothing is sent anywhere.
 - Part 2 (Chapters 4–6): due before December 1
 - Part 3 (Chapters 7–12): after the session
 
+## Style
+
+- Language: [Stephanie's language notes](https://github.com/stephs-stuff/steph-ai-style)
+- Look: AVTE branding (Amaranth for large accents, deep blue for text, legal-pad yellow where you write)
+- Project notes for contributors: [CLAUDE.md](CLAUDE.md)
+
 ## License
 
 Created by Stephanie Self. Shared under [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
