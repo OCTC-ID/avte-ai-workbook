@@ -11,7 +11,7 @@
                     note: 'Do this work without AI.' },
     'supported':  { text: 'AI-supported',  fill: '#144b8e', ink: '#ffffff', paw: 'rgba(255,255,255,0.25)', light: '#144b8e',
                     note: 'AI can help along the way. The work is yours.' },
-    'integrated': { text: 'AI-integrated', fill: '#8db8ec', ink: '#0d3466', paw: 'rgba(13,52,102,0.22)',  light: '#0d3466',
+    'integrated': { text: 'AI-integrated', fill: '#2f6b3a', ink: '#ffffff', paw: 'rgba(255,255,255,0.25)', light: '#2f6b3a',
                     note: 'Using AI is part of the task. Show how you used it.' }
   };
   var SIZES = { badge: [600, 200], wide: [1200, 200], square: [400, 400] };
@@ -75,7 +75,7 @@
       ctx.fillStyle = L.fill; ctx.fillRect(0, 0, 18, H); ctx.restore();
     } else { ctx.fillStyle = L.fill; ctx.fill(); }
     var ink = light ? L.light : L.ink;
-    var pawColor = light ? (L.fill === '#8db8ec' ? 'rgba(13,52,102,0.18)' : hexA(L.fill, 0.2)) : L.paw;
+    var pawColor = light ? hexA(L.fill, 0.2) : L.paw;
 
     // Paw-print trail
     if (square) {
