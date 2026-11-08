@@ -17,6 +17,7 @@
     { n: 4, title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
     { n: 5, title: 'Make your assignment stronger', when: 'Dec 1' },
     { n: 6, title: 'Tell your students where AI fits', when: 'Dec 1' },
+    { title: 'Your Week 7 takeaway', when: 'Dec 1' },
     { part: 'Part 3 · Back in your course' },
     { n: 7, title: 'There’s a name for this', when: 'Soon' },
     { n: 8, title: 'Label your assignments', when: 'Soon' },
@@ -80,6 +81,45 @@
     try { return localStorage.getItem(PREFIX + key); } catch (e) { return null; }
   }
 
+  /* ---- Answers saved on another chapter page (same browser) ---- */
+  function loadFrom(stem, key) {
+    var hit = null;
+    try {
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k.indexOf('avte-wb:') !== 0) continue;
+        if (k.indexOf('/' + stem) === -1) continue;
+        if (k.slice(-(key.length + 1)) !== ':' + key) continue;
+        hit = localStorage.getItem(k);
+      }
+    } catch (e) {}
+    return hit;
+  }
+  var LABELS = {
+    passed: 'Passed', partly: 'Partly', failed: 'Failed',
+    purpose: 'Why it matters (Purpose)', task: 'What to do (Task)', criteria: 'What good looks like (Criteria)',
+    'no-ai': 'No AI', supported: 'AI-supported', integrated: 'AI-integrated'
+  };
+  function fromSpec(spec) {
+    // "stem:key" or "stem:key|stem:key" (first one with an answer wins)
+    var parts = spec.split('|');
+    for (var i = 0; i < parts.length; i++) {
+      var bits = parts[i].split(':');
+      var v = loadFrom(bits[0], bits[1]);
+      if (v && v.trim()) return LABELS[v] || v.trim();
+    }
+    return '';
+  }
+  function fillPulled() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-from]'), function (el) {
+      var v = fromSpec(el.getAttribute('data-from'));
+      el.textContent = v || el.getAttribute('data-empty') || 'Not filled in yet.';
+      el.classList.toggle('empty', !v);
+    });
+  }
+  fillPulled();
+  window.addEventListener('pageshow', fillPulled);
+
   var fields = Array.prototype.slice.call(document.querySelectorAll('[data-save]'));
 
   /* ---- Print copies: textareas don't print well, so mirror them ---- */
@@ -127,7 +167,8 @@
   }
 
   /* ---- Copy with fallbacks ---- */
-  function copyText(text, button) {
+  function copyText(text, button, msg) {
+    msg = msg || 'Copied. Paste it into your AI tool.';
     function fallback() {
       var ta = document.createElement('textarea');
       ta.value = text; ta.setAttribute('readonly', '');
@@ -136,11 +177,11 @@
       var ok = false;
       try { ok = document.execCommand('copy'); } catch (e) {}
       document.body.removeChild(ta);
-      say(button, ok ? 'Copied. Paste it into your AI tool.' : 'Copy didn’t work here. Select the text above and copy it yourself.');
+      say(button, ok ? msg : 'Copy didn’t work here. Select the text above and copy it yourself.');
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function () {
-        say(button, 'Copied. Paste it into your AI tool.');
+        say(button, msg);
       }, fallback);
     } else { fallback(); }
   }
@@ -172,6 +213,40 @@
         : 'Please complete it.';
       return 'I’m a ' + level + ' veterinary technology student. Here is my ' + kind + ' from class. ' + ask +
         '\n\n[Paste the questions or instructions here. Leave out the answer key.]';
+    },
+    retest: function (b) {
+      var level = fromSpec('03-let-ai-take-your-test:s-level') || 'first-year';
+      var kind = fromSpec('03-let-ai-take-your-test:s-kind') || 'quiz';
+      var way = val(b, 'r-way');
+      var ask = way === 'blend'
+        ? 'Please complete it the way a ' + level + ' student would write it, in a natural student voice, so it doesn’t sound like AI wrote it.'
+        : 'Please complete it.';
+      return 'I’m a ' + level + ' veterinary technology student. Here is my ' + kind + ' from class. ' + ask +
+        '\n\n[Paste the new version here. Leave out the answer key.]';
+    },
+    expectation: function (b) {
+      var opener = {
+        'no-ai': 'In this course, please do your work without AI unless an assignment says otherwise.',
+        supported: 'In this course, you may use AI to support your work unless an assignment says otherwise. The thinking and the final work need to be your own.',
+        depends: 'Each assignment in this course will tell you whether you can use AI, and how.'
+      }[val(b, 'e-default')] || '';
+      var welcome = val(b, 'e-welcome'), not = val(b, 'e-not'), tell = val(b, 'e-tell'),
+          never = val(b, 'e-never'), why = val(b, 'e-why');
+      var lines = [opener];
+      if (welcome) lines.push('You’re welcome to use AI for ' + welcome.replace(/\.$/, '') + '.');
+      if (not) lines.push('Please don’t use AI for ' + not.replace(/\.$/, '') + '.');
+      if (tell) lines.push('When you use AI, ' + tell.replace(/\.$/, '') + '.');
+      if (never) lines.push('Never put ' + never.replace(/\.$/, '') + ' into an AI tool.');
+      if (why) lines.push(why);
+      var text = lines.filter(Boolean).join(' ');
+      store('e-draft', text);
+      return text || 'Fill in the boxes above and your draft will appear here.';
+    },
+    clarity: function () {
+      var t = (document.getElementById('e-final') || {}).value || load('e-draft') || '[Paste your AI-use expectation here.]';
+      return 'Here is an AI-use expectation I wrote for my veterinary technology students. Read it the way a first-year student would. ' +
+        'Point out anything that’s unclear or could be read two ways, and tell me what questions a student might still have. ' +
+        'Please don’t rewrite it. I want to keep my own wording.\n\n' + t.trim();
     }
   };
 
@@ -184,7 +259,44 @@
     b.addEventListener('change', update);
     update();
     var copyBtn = b.querySelector('[data-action="copy-prompt"]');
-    if (copyBtn) copyBtn.addEventListener('click', function () { copyText(out.textContent, copyBtn); });
+    if (copyBtn) copyBtn.addEventListener('click', function () { copyText(out.textContent, copyBtn, copyBtn.getAttribute('data-msg')); });
+    if (b.getAttribute('data-builder') === 'clarity') {
+      var fin = document.getElementById('e-final');
+      if (fin) fin.addEventListener('input', update);
+    }
+  });
+
+  /* ---- Chapter 6: move the generated draft into the editable box ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-action="use-draft"]'), function (btn) {
+    btn.addEventListener('click', function () {
+      var fin = document.getElementById(btn.getAttribute('data-target'));
+      var draft = load('e-draft');
+      if (!fin || !draft) { say(btn, 'Fill in the boxes above first.'); return; }
+      if (fin.value.trim() && !window.confirm('Replace what’s in the box with the new draft?')) return;
+      fin.value = draft;
+      fin.dispatchEvent(new Event('input'));
+      say(btn, 'Draft added. Edit it into your own words.');
+    });
+  });
+
+  /* ---- Takeaway: copy everything as plain text for the discussion ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-action="copy-takeaway"]'), function (btn) {
+    btn.addEventListener('click', function () {
+      fillPulled();
+      var out = ['Week 7 takeaway'];
+      Array.prototype.forEach.call(document.querySelectorAll('[data-tk]'), function (el) {
+        var head = el.getAttribute('data-tk');
+        var input = el.querySelector('input');
+        var body = input ? input.value.trim() : (el.querySelector('[data-from]') || {}).textContent;
+        if (head.charAt(0) === '#') {
+          var obj = el.querySelector('.obj');
+          out.push('', head.slice(1).toUpperCase() + (obj ? ': ' + obj.textContent.trim() : ''));
+          return;
+        }
+        out.push('', head + ':', (body || '').trim() || '(not filled in)');
+      });
+      copyText(out.join('\n'), btn, 'Copied. Paste it into your discussion post.');
+    });
   });
 
   /* ---- Page buttons ---- */
