@@ -31,7 +31,7 @@ The line from start to finish. The academy objective this week rolls up to is "E
 | 1 | Evaluate | Where AI helps, where it slips, what stays out | Readiness check |
 | 2 | Evaluate | Benefits and risks from the learner's seat; what they held back | Four Padlet reflections |
 | 3 | Evaluate | The risk to one of their own tests | Score; passed, partly, or failed |
-| TILT review | Gets ready for Create | Purpose, Task, Criteria | Which part is thinnest |
+| TILT page | Gets ready for Create | Purpose, Task, Criteria | Which part is thinnest |
 | 4 | Evaluate | Clinical eye and teaching eye on the Chapter 3 result | One benefit, one risk, one ethical line for their teaching |
 | 5 | Create (AI-informed teaching approach) | One change, based on what AI did, then a re-test | The revised part and the one change |
 | 6 | Create (clear course AI-use expectation) | Course-level expectation, then a label and statement for the changed assignment | The course expectation, label, and statement |
@@ -64,7 +64,7 @@ Lean into AVTE branding, not OCTC's.
 
 - SEE Framework (AI for Education, https://www.aiforeducation.io/the-see-framework-for-generative-ai-literacy; Stephanie completed their SEE Train-the-Trainer in August 2026): describe it in our own words, cite and link it, adapt activity formats with an "adapted from" line. Never reproduce its tables, graphics, reflection questions, or wording.
 - Small teaching (James M. Lang, *Small Teaching*, 2nd ed., 2021): the "one meaningful change" idea. Named and cited in Chapter 5 where it's used, and in Chapter 7 with the other names.
-- TILT (Winkelmes): an optional, skippable review page in Part 1 (`chapters/tilt-review.html`), written for people who may have seen TILT many times. Chapter 5's revision planner uses its plain questions (Why it matters / What to do / What good looks like) with the TILT terms beside them. Don't re-teach it anywhere else. TILT Higher Ed materials are CC BY-NC-SA 4.0 (same as this workbook), so adapt them with credit. Chapter 5's revision planner follows the flow of Stephanie's TILT reflection worksheet: the assignment as it is now, the revised version, one change I'll make, and support I need. Leave out Kentucky Essential Skills references; this audience is national.
+- TILT (Winkelmes): a short page in Part 1 prep, after Chapter 3 (`chapters/tilt-review.html`; the filename stays because Chapter 5 reads its saved answers). Planning assumption: the academy's Week 5 does not cover TILT, so the page is written for people meeting it for the first time, with a skim path for those who already use it. Chapter 5's revision planner uses its plain questions (Why it matters / What to do / What good looks like) with the TILT terms beside them. Don't re-teach it anywhere else. TILT Higher Ed materials are CC BY-NC-SA 4.0 (same as this workbook), so adapt them with credit. Chapter 5's revision planner follows the flow of Stephanie's TILT reflection worksheet: the assignment as it is now, the revised version, one change I'll make, and support I need. Leave out Kentucky Essential Skills references; this audience is national.
 - The Padlet wall is embedded in Chapter 2 and is password protected. The password stays in Canvas, never in this public repo, and so does anything about participants. After the Fall 2026 cohort, replace the embed with a short note that the wall was for that cohort.
 - Clinical content (cases, examples) gets a field check from Laura Neely or Tara before release.
 - Answers save only in the reader's browser (`localStorage`). Nothing is sent anywhere.

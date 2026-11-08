@@ -12,7 +12,7 @@
     { n: 2, href: 'chapters/02-try-it-for-you.html', title: 'Try it on something just for you' },
     { n: 3, href: 'chapters/03-let-ai-take-your-test.html', title: 'Let AI take one of your tests' },
     { sub: true, href: 'resources/sample-assignment.html', title: 'Ready-made case assignment' },
-    { href: 'chapters/tilt-review.html', title: 'Optional: a quick review of TILT', when: '7 min' },
+    { href: 'chapters/tilt-review.html', title: 'A quick look at TILT' },
     { part: 'Part 2 · When we meet' },
     { n: 4, title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
     { n: 5, title: 'Make your assignment stronger', when: 'Dec 1' },
