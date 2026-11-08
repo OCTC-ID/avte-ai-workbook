@@ -604,3 +604,28 @@ textarea:focus, input[type="text"]:focus, select:focus { background: var(--pad-f
   .home-mobile span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 @media print { .home-corner, .home-mobile, .home-bar .home-icon { display: none !important; } }
+
+/* ---------- Progress tracker ---------- */
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.progress { margin: .2rem .5rem .6rem; }
+.progress-label { display: block; font: 700 .72rem/1.3 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.progress-count { display: block; font-size: .9rem; color: var(--blue-dark); margin: .1rem 0 .35rem; }
+.progress-bar { display: block; height: 6px; background: #e8e3dc; border-radius: 99px; overflow: hidden; }
+.progress-bar i { display: block; height: 100%; background: #2f6b3a; border-radius: 99px; transition: width .3s ease; }
+.toc a { align-items: center; }
+.toc .n.status {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 1.45rem; height: 1.45rem; min-width: 0; border-radius: 50%;
+  border: 2px solid #cfc8bf; color: var(--muted); font: 700 .78rem/1 var(--sans); background: #fff;
+}
+.toc .n.status.started { border-color: var(--blue); color: var(--blue); }
+.toc .n.status.done { border-color: #2f6b3a; background: #2f6b3a; color: #fff; }
+.chapter .cnum.started { border-color: var(--blue); }
+.chapter .cnum.done { background: #2f6b3a; border-color: #2f6b3a; color: #fff; }
+.chapter .cnum svg { width: 1.1rem; height: 1.1rem; }
+.done-btn { display: inline-flex; align-items: center; gap: .4rem; background: #fff; color: #2f6b3a; border-color: #2f6b3a; }
+.done-btn:hover { background: #eaf3ec; color: #24552d; border-color: #24552d; }
+.done-btn[aria-pressed="true"] { background: #2f6b3a; color: #fff; }
+.done-btn[aria-pressed="true"]:hover { background: #24552d; color: #fff; }
+@media (prefers-reduced-motion: reduce) { .progress-bar i { transition: none; } }
+@media print { .done-btn { display: none !important; } }

@@ -58,6 +58,7 @@ Lean into AVTE branding, not OCTC's.
 - `chapters/NN-short-name.html`: one page per chapter. Each has a "You'll leave with" card, a short read, a Try It section that ends with a "You'll know you're ready when" card, then Print and Clear buttons at the bottom.
 - `resources/`: supporting pages. `resources/label-maker.html` is the appendix tool that draws No AI / AI-supported / AI-integrated PNG labels with paw prints (`js/label-maker.js`, loaded only on that page).
 - The left contents panel is built from the `TOC` list at the top of `js/book.js`. Add a chapter's `href` there when it goes live.
+- Progress tracker: TOC items with `track: true` show a status circle (empty, opened, done) and count toward "Your progress" at the top of the contents panel. Opening a page marks it opened; the "Mark this chapter done" button (added by `book.js` to `.page-tools`) marks it done. Status is stored per page in `localStorage` (`avte-wb:status:<href>`).
 - Bump the `?v=` number on `book.css` and `book.js` in every page when either file changes.
 
 ## Content rules
