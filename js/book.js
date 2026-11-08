@@ -24,7 +24,9 @@
     { n: 9, title: 'Help your students use AI well', when: 'Soon' },
     { n: 10, title: 'Talk with your students about AI', when: 'Soon' },
     { n: 11, title: 'Try these with your mentor group or class', when: 'Soon' },
-    { n: 12, title: 'AI and what you’ve learned this fall', when: 'Soon' }
+    { n: 12, title: 'AI and what you’ve learned this fall', when: 'Soon' },
+    { part: 'Appendix' },
+    { href: 'resources/label-maker.html', title: 'Assignment label maker' }
   ];
 
   var root = document.documentElement.getAttribute('data-root') || '';
