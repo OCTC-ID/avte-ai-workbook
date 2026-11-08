@@ -4,6 +4,8 @@ https://octc-id.github.io/avte-ai-workbook/
 
 A workbook for new veterinary technology faculty, made for Week 7 (AI and Teaching) of the AVTE Vet Tech New Faculty Academy.
 
+**Open the workbook:** https://octc-id.github.io/avte-ai-workbook/
+
 ## How it's built
 
 Plain HTML, CSS, and JavaScript with no build step, so the same files run on GitHub Pages, another web host, or inside an LMS package.
