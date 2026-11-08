@@ -629,3 +629,24 @@ textarea:focus, input[type="text"]:focus, select:focus { background: var(--pad-f
 .done-btn[aria-pressed="true"]:hover { background: #24552d; color: #fff; }
 @media (prefers-reduced-motion: reduce) { .progress-bar i { transition: none; } }
 @media print { .done-btn { display: none !important; } }
+
+/* ---------- Cover: downloads ---------- */
+.home .download { margin-top: 3rem; }
+.download-grid { display: grid; gap: .9rem; margin-top: 1rem; }
+@media (min-width: 640px) { .download-grid { grid-template-columns: 1fr 1fr; } }
+.download-card {
+  display: flex; flex-direction: column; gap: .2rem; text-decoration: none;
+  background: var(--paper); border: 1px solid var(--rule); border-left: 5px solid var(--blue);
+  border-radius: var(--radius); padding: 1rem 1.25rem; color: var(--ink);
+}
+.download-card:hover { border-color: var(--blue); }
+.download-card .format { font: 700 1.3rem/1.2 var(--serif); color: var(--blue); }
+.download-card .what { color: var(--muted); font-size: .95rem; }
+.download-card .soon-note {
+  align-self: flex-start; margin-top: .4rem; font: 700 .75rem/1 var(--sans); letter-spacing: .04em;
+  color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: .25rem .6rem;
+}
+.download-card[aria-disabled="true"] { cursor: default; border-left-color: #cfc8bf; }
+.download-card[aria-disabled="true"]:hover { border-color: var(--rule); border-left-color: #cfc8bf; }
+.download-card[aria-disabled="true"] .format { color: var(--muted); }
+@media print { .download { display: none; } }
