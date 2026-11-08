@@ -8,22 +8,22 @@
     { part: 'Start here' },
     { href: 'index.html', title: 'Cover and how this works' },
     { part: 'Part 1 · Before we meet' },
-    { n: 1, href: 'chapters/01-what-ai-can-and-cant-do.html', title: 'What AI tools can and can’t do' },
-    { n: 2, href: 'chapters/02-try-it-for-you.html', title: 'Try it on something just for you' },
-    { n: 3, href: 'chapters/03-let-ai-take-your-test.html', title: 'Let AI take one of your tests' },
+    { n: 1, track: true, href: 'chapters/01-what-ai-can-and-cant-do.html', title: 'What AI tools can and can’t do' },
+    { n: 2, track: true, href: 'chapters/02-try-it-for-you.html', title: 'Try it on something just for you' },
+    { n: 3, track: true, href: 'chapters/03-let-ai-take-your-test.html', title: 'Let AI take one of your tests' },
     { sub: true, href: 'resources/sample-assignment.html', title: 'Ready-made case assignment' },
-    { href: 'chapters/tilt-review.html', title: 'A quick look at TILT' },
+    { href: 'chapters/tilt-review.html', title: 'A quick look at TILT', track: true },
     { part: 'Part 2 · When we meet' },
-    { n: 4, title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
-    { n: 5, title: 'Make your assignment stronger', when: 'Dec 1' },
-    { n: 6, title: 'Tell your students where AI fits', when: 'Dec 1' },
-    { title: 'Your Week 7 takeaway', when: 'Dec 1' },
+    { n: 4, track: true, title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
+    { n: 5, track: true, title: 'Make your assignment stronger', when: 'Dec 1' },
+    { n: 6, track: true, title: 'Tell your students where AI fits', when: 'Dec 1' },
+    { title: 'Your Week 7 takeaway', when: 'Dec 1', track: true },
     { part: 'Part 3 · Back in your course' },
-    { n: 7, title: 'There’s a name for this', when: 'Soon' },
-    { n: 8, title: 'Label the assignments that count', when: 'Soon' },
-    { n: 9, title: 'Help your students use AI well', when: 'Soon' },
-    { n: 10, title: 'Talk with your students about AI', when: 'Soon' },
-    { n: 11, title: 'Try these with your mentor group or class', when: 'Soon' },
+    { n: 7, track: true, title: 'There’s a name for this', when: 'Soon' },
+    { n: 8, track: true, title: 'Label the assignments that count', when: 'Soon' },
+    { n: 9, track: true, title: 'Help your students use AI well', when: 'Soon' },
+    { n: 10, track: true, title: 'Talk with your students about AI', when: 'Soon' },
+    { n: 11, track: true, title: 'Try these with your mentor group or class', when: 'Soon' },
     { part: 'Appendix' },
     { href: 'resources/label-maker.html', title: 'Assignment label maker' }
   ];
@@ -34,21 +34,82 @@
 
   function esc(t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
 
-  if (tocNav) {
-    var html = '<ol>';
+  /* ---- Progress: opened and done, kept in this browser ---- */
+  var CHECK = '<svg aria-hidden="true" focusable="false" viewBox="0 0 16 16" width="12" height="12"><path d="M3 8.5 6.5 12 13 4.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function getStatus(href) { try { return localStorage.getItem('avte-wb:status:' + href) || ''; } catch (e) { return ''; } }
+  function setStatus(href, v) { try { if (v) localStorage.setItem('avte-wb:status:' + href, v); else localStorage.removeItem('avte-wb:status:' + href); } catch (e) {} }
+  var STATUS_TEXT = { '': 'not started', started: 'opened', done: 'done' };
+
+  var currentItem = null;
+  TOC.forEach(function (item) {
+    if (item.href && here.slice(-item.href.length) === item.href) currentItem = item;
+  });
+  if (currentItem && currentItem.track && getStatus(currentItem.href) !== 'done') setStatus(currentItem.href, 'started');
+
+  function renderToc() {
+    if (!tocNav) return;
+    var tracked = TOC.filter(function (i) { return i.track && i.href; });
+    var done = tracked.filter(function (i) { return getStatus(i.href) === 'done'; }).length;
+    var pct = tracked.length ? Math.round(done / tracked.length * 100) : 0;
+    var html = '<div class="progress"><span class="progress-label">Your progress</span>' +
+      '<span class="progress-count">' + done + ' of ' + tracked.length + ' done</span>' +
+      '<span class="progress-bar" aria-hidden="true"><i style="width:' + pct + '%"></i></span></div><ol>';
     TOC.forEach(function (item) {
       if (item.part) { html += '<li class="toc-part">' + esc(item.part) + '</li>'; return; }
-      var num = '<span class="n">' + (item.n || '') + '</span>';
       if (!item.href) {
-        html += '<li><span class="toc-soon">' + num + '<span>' + esc(item.title) + '</span>' +
+        html += '<li><span class="toc-soon"><span class="n">' + (item.n || '') + '</span><span>' + esc(item.title) + '</span>' +
           (item.when ? '<span class="when">' + esc(item.when) + '</span>' : '') + '</span></li>';
         return;
       }
-      var current = here.slice(-item.href.length) === item.href;
+      var st = item.track ? getStatus(item.href) : null;
+      var num;
+      if (st === null) num = '<span class="n">' + (item.n || '') + '</span>';
+      else num = '<span class="n status' + (st ? ' ' + st : '') + '">' + (st === 'done' ? CHECK : (item.n || '&bull;')) + '</span>';
+      var sr = st === null ? '' : '<span class="visually-hidden"> (' + STATUS_TEXT[st] + ')</span>';
+      var current = item === currentItem;
       html += '<li' + (item.sub ? ' class="sub"' : '') + '><a href="' + root + item.href + '"' +
-        (current ? ' aria-current="page"' : '') + '>' + (item.sub ? '' : num) + '<span>' + esc(item.title) + '</span></a></li>';
+        (current ? ' aria-current="page"' : '') + '>' + (item.sub ? '' : num) + '<span>' + esc(item.title) + sr + '</span></a></li>';
     });
     tocNav.innerHTML = html + '</ol>';
+  }
+  renderToc();
+
+  // Same marks on the cover's contents cards
+  function renderCover() {
+    Array.prototype.forEach.call(document.querySelectorAll('.chapter h3 a[href]'), function (a) {
+      var href = a.getAttribute('href');
+      var cn = a.closest('.chapter').querySelector('.cnum');
+      if (!cn || !/^chapters\//.test(href)) return;
+      if (!cn.hasAttribute('data-n')) cn.setAttribute('data-n', cn.textContent);
+      var st = getStatus(href);
+      cn.classList.toggle('started', st === 'started');
+      cn.classList.toggle('done', st === 'done');
+      cn.innerHTML = st === 'done' ? CHECK : esc(cn.getAttribute('data-n'));
+      var old = a.querySelector('.visually-hidden'); if (old) old.remove();
+      if (st) a.insertAdjacentHTML('beforeend', '<span class="visually-hidden"> (' + STATUS_TEXT[st] + ')</span>');
+    });
+  }
+  renderCover();
+
+  // "Mark this chapter done" at the bottom of each tracked chapter
+  var toolsRow = document.querySelector('.page-tools .btn-row');
+  if (currentItem && currentItem.track && toolsRow) {
+    var doneBtn = document.createElement('button');
+    doneBtn.type = 'button';
+    doneBtn.className = 'btn done-btn';
+    var paint = function () {
+      var isDone = getStatus(currentItem.href) === 'done';
+      doneBtn.setAttribute('aria-pressed', isDone ? 'true' : 'false');
+      doneBtn.innerHTML = isDone ? CHECK + ' Done' : 'Mark this chapter done';
+      doneBtn.title = isDone ? 'Select to mark this chapter not done' : '';
+    };
+    doneBtn.addEventListener('click', function () {
+      var isDone = getStatus(currentItem.href) === 'done';
+      setStatus(currentItem.href, isDone ? 'started' : 'done');
+      paint(); renderToc();
+    });
+    paint();
+    toolsRow.insertBefore(doneBtn, toolsRow.firstChild);
   }
 
   /* ---- Home button, upper right on every page except the cover ---- */
