@@ -25,7 +25,8 @@
     { n: 10, track: true, title: 'Talk with your students about AI', when: 'Soon' },
     { n: 11, track: true, title: 'Try these with your mentor group or class', when: 'Soon' },
     { part: 'Appendix' },
-    { href: 'resources/label-maker.html', title: 'Assignment label maker' }
+    { href: 'resources/label-maker.html', title: 'Assignment label maker' },
+    { href: 'index.html#download', title: 'Download as PDF or EPUB' }
   ];
 
   var root = document.documentElement.getAttribute('data-root') || '';
@@ -435,6 +436,11 @@
       });
       say(btn, 'Cleared.');
     });
+  });
+
+  /* ---- Download placeholders do nothing until the files are added ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('a[aria-disabled="true"]'), function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); });
   });
 
   /* ---- Saving not possible? Say so once, quietly ---- */
