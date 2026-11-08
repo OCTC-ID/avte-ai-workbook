@@ -20,6 +20,8 @@ The workbook holds to the two published Week 7 objectives, word for word. Every 
 - **Evaluate:** Evaluate the benefits, risks, and ethics of generative AI in teaching and assessment. (Chapters 1 to 4)
 - **Create:** Design an AI-informed teaching approach and a clear course AI-use expectation for your context. (Chapters 5 and 6; Part 3 carries it into the course)
 
+Nothing is submitted for grading. Chapter 6 ends with a one-page "Week 7 takeaway" (the revised assignment and the AI-use statement) that participants save as a PDF and post in a follow-up discussion, then reply to two colleagues. Evaluate is met through the work itself and needs no separate submission.
+
 ## Look
 
 Lean into AVTE branding, not OCTC's.
