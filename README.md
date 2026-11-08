@@ -1,1 +1,1 @@
-# -avte-ai-workbook
+# avte-ai-workbook
