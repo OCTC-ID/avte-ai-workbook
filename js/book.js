@@ -3,6 +3,12 @@
 (function () {
   'use strict';
 
+  /* ---- Edition: change these two lines when you publish an update ---- */
+  var VERSION = 'Fall 2026';
+  var LAST_UPDATED = 'November 8, 2026';
+  Array.prototype.forEach.call(document.querySelectorAll('[data-version]'), function (el) { el.textContent = VERSION; });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-updated]'), function (el) { el.textContent = LAST_UPDATED; });
+
   /* ---- Table of contents (edit this list as chapters go live) ---- */
   var TOC = [
     { part: 'Start here' },
