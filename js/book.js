@@ -20,11 +20,10 @@
     { title: 'Your Week 7 takeaway', when: 'Dec 1' },
     { part: 'Part 3 · Back in your course' },
     { n: 7, title: 'There’s a name for this', when: 'Soon' },
-    { n: 8, title: 'Label your assignments', when: 'Soon' },
+    { n: 8, title: 'Label the assignments that count', when: 'Soon' },
     { n: 9, title: 'Help your students use AI well', when: 'Soon' },
     { n: 10, title: 'Talk with your students about AI', when: 'Soon' },
     { n: 11, title: 'Try these with your mentor group or class', when: 'Soon' },
-    { n: 12, title: 'AI and what you’ve learned this fall', when: 'Soon' },
     { part: 'Appendix' },
     { href: 'resources/label-maker.html', title: 'Assignment label maker' }
   ];
@@ -147,6 +146,8 @@
       if (saved !== null) el.checked = saved === el.value;
     } else if (saved !== null) {
       el.value = saved;
+    } else if (el.getAttribute('data-prefill')) {
+      el.value = fromSpec(el.getAttribute('data-prefill'));
     }
     mirror(el);
     var evt = (el.tagName === 'SELECT' || el.type === 'checkbox' || el.type === 'radio') ? 'change' : 'input';
@@ -267,6 +268,39 @@
       if (fin) fin.addEventListener('input', update);
     }
   });
+
+  /* ---- Chapter 9: student handout preview ---- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-handout]'), function (form) {
+    var out = document.querySelector(form.getAttribute('data-handout'));
+    if (!out) return;
+    function v(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+    function update() {
+      var course = v('h-course');
+      var html = '<p class="handout-kicker">' + esc(course || 'Your course') + '</p>' +
+        '<h2>Using AI in this course</h2>';
+      var exp = v('h-expect');
+      if (exp) html += '<h3>What I expect</h3><p>' + esc(exp) + '</p>';
+      var habits = Array.prototype.filter.call(form.querySelectorAll('[data-habit]'), function (c) { return c.checked; })
+        .map(function (c) { return '<li><strong>' + esc(c.getAttribute('data-habit')) + '</strong> ' + esc(c.getAttribute('data-more')) + '</li>'; });
+      var own = v('h-own');
+      if (own) habits.push('<li>' + esc(own) + '</li>');
+      if (habits.length) html += '<h3>Habits that help you learn</h3><ul>' + habits.join('') + '</ul>';
+      var ask = v('h-ask');
+      if (ask) html += '<h3>Not sure? Ask</h3><p>' + esc(ask) + '</p>';
+      out.innerHTML = html;
+    }
+    form.addEventListener('input', update);
+    form.addEventListener('change', update);
+    update();
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-action="print-handout"]'), function (btn) {
+    btn.addEventListener('click', function () {
+      document.body.classList.add('print-handout');
+      window.print();
+      setTimeout(function () { document.body.classList.remove('print-handout'); }, 500);
+    });
+  });
+  window.addEventListener('afterprint', function () { document.body.classList.remove('print-handout'); });
 
   /* ---- Chapter 6: move the generated draft into the editable box ---- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-action="use-draft"]'), function (btn) {
