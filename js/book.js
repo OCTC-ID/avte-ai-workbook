@@ -9,6 +9,17 @@
   Array.prototype.forEach.call(document.querySelectorAll('[data-version]'), function (el) { el.textContent = VERSION; });
   Array.prototype.forEach.call(document.querySelectorAll('[data-updated]'), function (el) { el.textContent = LAST_UPDATED; });
 
+  /* ---- Which parts are open. Set a part to true to hide it from the contents
+     panel and the cover until it opens. Add ?preview=1 to any page address to
+     see locked parts in this browser anyway (?preview=0 turns that off). ---- */
+  var LOCKED = { part2: false, part3: false };
+  try {
+    var pv = /[?&]preview=([01])/.exec(location.search);
+    if (pv) localStorage.setItem('avte-wb:preview', pv[1]);
+  } catch (e) {}
+  function previewing() { try { return localStorage.getItem('avte-wb:preview') === '1'; } catch (e) { return false; } }
+  function isLocked(lock) { return !!(lock && LOCKED[lock] && !previewing()); }
+
   /* ---- Table of contents (edit this list as chapters go live) ---- */
   var TOC = [
     { part: 'Start here' },
@@ -20,16 +31,16 @@
     { sub: true, href: 'resources/sample-assignment.html', title: 'Ready-made case assignment' },
     { n: 4, track: true, href: 'chapters/04-a-quick-look-at-tilt.html', title: 'A quick look at TILT' },
     { part: 'Part 2 · When we meet' },
-    { n: 5, track: true, title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
-    { n: 6, track: true, title: 'Make your assignment stronger', when: 'Dec 1' },
-    { n: 7, track: true, title: 'Tell your students where AI fits', when: 'Dec 1' },
-    { title: 'Your Week 7 takeaway', when: 'Dec 1', track: true },
+    { n: 5, track: true, href: 'chapters/05-clinical-eye-and-teaching-eye.html', lock: 'part2', title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
+    { n: 6, track: true, href: 'chapters/06-make-your-assignment-stronger.html', lock: 'part2', title: 'Make your assignment stronger', when: 'Dec 1' },
+    { n: 7, track: true, href: 'chapters/07-tell-your-students-where-ai-fits.html', lock: 'part2', title: 'Tell your students where AI fits', when: 'Dec 1' },
+    { href: 'chapters/week7-takeaway.html', lock: 'part2', title: 'Your Week 7 takeaway', when: 'Dec 1', track: true },
     { part: 'Part 3 · Back in your course' },
-    { n: 8, track: true, title: 'There’s a name for this', when: 'Soon' },
-    { n: 9, track: true, title: 'Label the assignments that count', when: 'Soon' },
-    { n: 10, track: true, title: 'Help your students use AI well', when: 'Soon' },
-    { n: 11, track: true, title: 'Talk with your students about AI', when: 'Soon' },
-    { n: 12, track: true, title: 'Try these with your mentor group or class', when: 'Soon' },
+    { n: 8, track: true, href: 'chapters/08-theres-a-name-for-this.html', lock: 'part3', title: 'There’s a name for this', when: 'Soon' },
+    { n: 9, track: true, href: 'chapters/09-label-the-assignments-that-count.html', lock: 'part3', title: 'Label the assignments that count', when: 'Soon' },
+    { n: 10, track: true, href: 'chapters/10-help-your-students-use-ai-well.html', lock: 'part3', title: 'Help your students use AI well', when: 'Soon' },
+    { n: 11, track: true, href: 'chapters/11-talk-with-your-students-about-ai.html', lock: 'part3', title: 'Talk with your students about AI', when: 'Soon' },
+    { n: 12, track: true, href: 'chapters/12-try-these-with-your-group-or-class.html', lock: 'part3', title: 'Try these with your mentor group or class', when: 'Soon' },
     { part: 'Appendix' },
     { href: 'resources/label-maker.html', title: 'Assignment label maker' },
     { href: 'resources/keep-learning.html', title: 'Keep learning' },
@@ -56,7 +67,7 @@
 
   function renderToc() {
     if (!tocNav) return;
-    var tracked = TOC.filter(function (i) { return i.track && i.href; });
+    var tracked = TOC.filter(function (i) { return i.track && i.href && !isLocked(i.lock); });
     var done = tracked.filter(function (i) { return getStatus(i.href) === 'done'; }).length;
     var pct = tracked.length ? Math.round(done / tracked.length * 100) : 0;
     var html = '<div class="progress"><span class="progress-label">Your progress</span>' +
@@ -64,7 +75,7 @@
       '<span class="progress-bar" aria-hidden="true"><i style="width:' + pct + '%"></i></span></div><ol>';
     TOC.forEach(function (item) {
       if (item.part) { html += '<li class="toc-part">' + esc(item.part) + '</li>'; return; }
-      if (!item.href) {
+      if (!item.href || isLocked(item.lock)) {
         html += '<li><span class="toc-soon"><span class="n">' + (item.n || '') + '</span><span>' + esc(item.title) + '</span>' +
           (item.when ? '<span class="when">' + esc(item.when) + '</span>' : '') + '</span></li>';
         return;
@@ -81,6 +92,14 @@
     tocNav.innerHTML = html + '</ol>';
   }
   renderToc();
+
+  // Locked parts look like "coming soon" on the cover
+  Array.prototype.forEach.call(document.querySelectorAll('.chapter[data-lock]'), function (li) {
+    if (!isLocked(li.getAttribute('data-lock'))) return;
+    li.classList.add('pending');
+    var link = li.querySelector('h3 a');
+    if (link) link.parentNode.textContent = link.textContent;
+  });
 
   // Same marks on the cover's contents cards
   function renderCover() {
