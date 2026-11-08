@@ -5,55 +5,233 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A workbook for new veterinary technology faculty on using AI in teaching, from the AVTE Vet Tech New Faculty Academy, Week 7.">
 <title>AI and Your Teaching: A Workbook for New Vet Tech Faculty</title>
-<link rel="stylesheet" href="css/book.css?v=4">
+<link rel="stylesheet" href="css/book.css?v=5">
 </head>
-<body>
+<body class="home-page">
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="layout">
-<aside class="sidebar" id="sidebar" aria-label="Contents">
-  <a class="sidebar-title" href="index.html">AI and Your Teaching<small>A workbook for new vet tech faculty</small></a>
-  <nav class="toc" id="toc" aria-label="Table of contents"><a href="index.html#contents">Contents</a></nav>
-</aside>
-<div class="scrim" hidden></div>
-<div class="content">
-<header class="mobilebar">
-  <button class="toc-toggle" type="button" aria-controls="sidebar" aria-expanded="false">Contents</button>
-  <a class="mobile-title" href="index.html">AI and Your Teaching</a>
+<header class="home-bar">
+  <div class="home-bar-inner">
+    <a class="mobile-title" href="index.html">AI and Your Teaching</a>
+    <nav aria-label="Workbook"><a href="#contents">Contents</a><a href="#how">How it works</a></nav>
+  </div>
 </header>
 
-<main id="main">
-  <section class="cover" aria-labelledby="book-title">
-    <div class="cover-band"></div>
-    <div class="cover-body">
-      <p class="kicker">Vet Tech New Faculty Academy &middot; Week 7</p>
-      <h1 id="book-title">AI and Your Teaching</h1>
-      <p class="subtitle">A workbook for new vet tech faculty</p>
-      <p class="org">Association of Veterinary Technician Educators (AVTE)</p>
+<div class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Vet Tech New Faculty Academy &middot; Week&nbsp;7</p>
+    <h1>AI and Your Teaching</h1>
+    <p class="tagline">A workbook for new vet tech faculty</p>
+    <a class="start-btn" href="chapters/01-what-ai-can-and-cant-do.html">Start reading <span aria-hidden="true">&rarr;</span></a>
+    <p class="hero-sub"><a href="#how">New here? How this workbook works</a></p>
+  </div>
+  <svg class="hero-art" viewBox="0 0 1200 260" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false">
+  <!-- far hills -->
+  <path d="M0 175 C150 135 260 150 380 160 C520 172 600 128 760 138 C900 147 1000 120 1200 142 L1200 260 L0 260 Z" fill="#0f3e78"/>
+  <!-- heartbeat line along the horizon -->
+  <polyline points="0,168 210,168 228,152 244,178 262,108 282,196 300,168 520,168 538,156 552,176 568,124 586,188 602,168 1200,168"
+    fill="none" stroke="#ff5a66" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+  <!-- ground -->
+  <path d="M0 214 C200 200 420 206 620 210 C820 214 1000 202 1200 208 L1200 260 L0 260 Z" fill="#0a2a57"/>
 
-      <blockquote class="cover-quote">
-        You already have a clinical eye. It&rsquo;s what catches the wrong dose before anyone else does.
-        This fall you&rsquo;ve been building a teaching eye, the one that notices when a quiz doesn&rsquo;t
-        match what students are supposed to learn. Anything AI gives you deserves a look from both.
-      </blockquote>
+  <!-- stack of books with apple and stethoscope (left) -->
+  <g transform="translate(120 150)">
+    <rect x="0" y="40" width="150" height="22" rx="3" fill="#ef3340"/>
+    <rect x="10" y="18" width="132" height="22" rx="3" fill="#e8eef7"/>
+    <rect x="-4" y="-4" width="140" height="22" rx="3" fill="#8db8ec"/>
+    <line x1="14" y1="29" x2="132" y2="29" stroke="#c9d5e6" stroke-width="3"/>
+    <line x1="10" y1="51" x2="140" y2="51" stroke="#c8102e" stroke-width="3"/>
+    <!-- apple -->
+    <path d="M70 -6 C58 -16 38 -12 38 -32 C38 -52 56 -58 70 -50 C84 -58 102 -52 102 -32 C102 -12 82 -16 70 -6 Z" fill="#ef3340"/>
+    <path d="M70 -50 C70 -60 74 -66 80 -70" stroke="#e8eef7" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M78 -58 C88 -66 98 -62 100 -56 C92 -50 84 -52 78 -58 Z" fill="#8db8ec"/>
+    <!-- stethoscope draped over the books -->
+    <path d="M150 6 C172 10 180 30 172 46" fill="none" stroke="#fff1d6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M150 6 C130 2 116 8 110 -4" fill="none" stroke="#fff1d6" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="172" cy="54" r="8" fill="none" stroke="#fff1d6" stroke-width="5"/>
+  </g>
+
+  <!-- paw prints walking across the ground -->
+  <g fill="#8db8ec" opacity=".55">
+    <g transform="translate(360 232) rotate(80) scale(.32)"><ellipse cx="0" cy="14" rx="22" ry="18"/><ellipse cx="-24" cy="-10" rx="9" ry="12"/><ellipse cx="-9" cy="-24" rx="9" ry="12"/><ellipse cx="9" cy="-24" rx="9" ry="12"/><ellipse cx="24" cy="-10" rx="9" ry="12"/></g>
+    <g transform="translate(410 220) rotate(100) scale(.32)"><ellipse cx="0" cy="14" rx="22" ry="18"/><ellipse cx="-24" cy="-10" rx="9" ry="12"/><ellipse cx="-9" cy="-24" rx="9" ry="12"/><ellipse cx="9" cy="-24" rx="9" ry="12"/><ellipse cx="24" cy="-10" rx="9" ry="12"/></g>
+    <g transform="translate(460 234) rotate(80) scale(.32)"><ellipse cx="0" cy="14" rx="22" ry="18"/><ellipse cx="-24" cy="-10" rx="9" ry="12"/><ellipse cx="-9" cy="-24" rx="9" ry="12"/><ellipse cx="9" cy="-24" rx="9" ry="12"/><ellipse cx="24" cy="-10" rx="9" ry="12"/></g>
+    <g transform="translate(510 222) rotate(100) scale(.32)"><ellipse cx="0" cy="14" rx="22" ry="18"/><ellipse cx="-24" cy="-10" rx="9" ry="12"/><ellipse cx="-9" cy="-24" rx="9" ry="12"/><ellipse cx="9" cy="-24" rx="9" ry="12"/><ellipse cx="24" cy="-10" rx="9" ry="12"/></g>
+    <g transform="translate(560 236) rotate(80) scale(.32)"><ellipse cx="0" cy="14" rx="22" ry="18"/><ellipse cx="-24" cy="-10" rx="9" ry="12"/><ellipse cx="-9" cy="-24" rx="9" ry="12"/><ellipse cx="9" cy="-24" rx="9" ry="12"/><ellipse cx="24" cy="-10" rx="9" ry="12"/></g>
+  </g>
+
+  <!-- sitting dog -->
+  <g transform="translate(860 214)" fill="#e8eef7">
+    <path d="M-38 0 C-46 -30 -40 -62 -14 -76 L-6 -100 C-10 -118 0 -132 16 -132 C30 -132 40 -122 46 -114 L62 -110 C66 -104 62 -96 54 -96 L42 -96 C40 -84 34 -76 26 -72 C34 -52 34 -24 30 0 Z"/>
+    <path d="M2 -126 C-12 -126 -20 -112 -16 -96 C-12 -90 -6 -94 -4 -102 C-2 -112 0 -118 2 -126 Z" fill="#8db8ec"/>
+    <circle cx="26" cy="-114" r="3.5" fill="#0a2a57"/>
+    <path d="M-38 0 C-60 -2 -70 -14 -66 -26 C-62 -18 -54 -12 -40 -12" fill="#e8eef7"/>
+    <rect x="8" y="-40" width="12" height="40" rx="5"/>
+    <rect x="22" y="-40" width="12" height="40" rx="5"/>
+    <path d="M-2 -70 C8 -64 22 -64 30 -70 L28 -62 C20 -58 8 -58 0 -62 Z" fill="#ef3340"/>
+  </g>
+
+  <!-- sitting cat -->
+  <g transform="translate(1000 214)" fill="#fff1d6">
+    <path d="M-26 0 C-34 -24 -30 -52 -12 -64 C-18 -72 -20 -84 -16 -94 L-6 -82 C0 -84 8 -84 14 -82 L24 -94 C28 -84 26 -72 20 -64 C34 -52 36 -24 28 0 Z"/>
+    <path d="M28 -4 C52 -6 62 -24 54 -44 C50 -54 42 -54 40 -48 C46 -40 48 -28 30 -18 Z"/>
+    <circle cx="-6" cy="-72" r="3" fill="#0a2a57"/><circle cx="12" cy="-72" r="3" fill="#0a2a57"/>
+  </g>
+
+  <!-- pencil lying on the ground -->
+  <g transform="translate(690 206) rotate(-8)">
+    <rect x="0" y="0" width="90" height="12" rx="2" fill="#8db8ec"/>
+    <rect x="0" y="0" width="14" height="12" rx="2" fill="#ef3340"/>
+    <path d="M90 0 L108 6 L90 12 Z" fill="#fff1d6"/>
+    <path d="M102 4 L108 6 L102 8 Z" fill="#0a2a57"/>
+  </g>
+</svg>
+</div>
+
+<main id="main" class="home">
+  <blockquote class="home-quote">
+    You already have a clinical eye. It&rsquo;s what catches the wrong dose before anyone else does.
+    This fall you&rsquo;ve been building a teaching eye, the one that notices when a quiz doesn&rsquo;t
+    match what students are supposed to learn. Anything AI gives you deserves a look from both.
+  </blockquote>
+
+  <section aria-labelledby="outcomes" class="outcomes">
+    <h2 id="outcomes">What you&rsquo;ll be able to do</h2>
+    <p>These are the two objectives for Week 7 from the academy syllabus. Each chapter works toward one of them.</p>
+    <div class="outcome-grid">
+      <div class="outcome">
+        <span class="verb">Evaluate</span>
+        <p class="obj">Evaluate the benefits, risks, and ethics of generative AI in teaching and assessment.</p>
+        <p class="where">You&rsquo;ll work on this in Chapters 1 to 4.</p>
+      </div>
+      <div class="outcome">
+        <span class="verb">Create</span>
+        <p class="obj">Design an AI-informed teaching approach and a clear course AI-use expectation for your context.</p>
+        <p class="where">You&rsquo;ll work on this in Chapters 5 and 6. Part 3 helps you carry it into your course.</p>
+      </div>
     </div>
   </section>
 
-  <div class="sheet" style="margin-top:1.5rem">
-    <p class="kicker">Before you begin</p>
-    <h2 style="margin-top:0">How this workbook works</h2>
+  <section aria-labelledby="contents">
+    <h2 id="contents">Contents</h2>
+    <div class="part-head"><p class="part-label">Part 1</p><h3 class="part-name">Before we meet</h3><p class="part-when">About 35 minutes, before December 1</p></div>
+    <ol class="chapters">
+      <li class="chapter">
+        <span class="cnum" aria-hidden="true">1</span>
+        <div>
+          <h3><a href="chapters/01-what-ai-can-and-cant-do.html">What AI tools can and can&rsquo;t do</a></h3>
+          <p class="cdesc">A plain picture of what&rsquo;s happening when you type into an AI tool, and what to keep out of it.</p>
+          <span class="cmeta">5 minutes</span>
+        </div>
+      </li>
+      <li class="chapter">
+        <span class="cnum" aria-hidden="true">2</span>
+        <div>
+          <h3><a href="chapters/02-try-it-for-you.html">Try it on something just for you</a></h3>
+          <p class="cdesc">Use AI on something personal, then share four quick reflections on the class wall.</p>
+          <span class="cmeta">15 minutes</span>
+        </div>
+      </li>
+      <li class="chapter">
+        <span class="cnum" aria-hidden="true">3</span>
+        <div>
+          <h3><a href="chapters/03-let-ai-take-your-test.html">Let AI take one of your tests</a></h3>
+          <p class="cdesc">See one of your own tests the way a student with AI would, and score what comes back.</p>
+          <span class="cmeta">15 minutes</span><p class="csub">No test of your own yet? Use the <a href="resources/sample-assignment.html">ready-made case assignment</a>.</p>
+        </div>
+      </li>
+      <li class="chapter optional">
+        <span class="cnum" aria-hidden="true">+</span>
+        <div>
+          <h3><a href="chapters/tilt-review.html">A quick review of TILT</a></h3>
+          <p class="cdesc">A short refresher on Purpose, Task, and Criteria. Skip it if you already know TILT well.</p>
+          <span class="cmeta">Optional &middot; 7 minutes</span>
+        </div>
+      </li>
+    </ol>
+    <div class="part-head"><p class="part-label">Part 2</p><h3 class="part-name">When we meet</h3><p class="part-when">During the live session on December 1</p></div>
+    <ol class="chapters">
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">4</span>
+        <div>
+          <h3>Your clinical eye and your teaching eye</h3>
+          <p class="cdesc">Check AI&rsquo;s work using both kinds of judgment you bring to the job.</p>
+          <span class="soon">Opens December 1</span>
+        </div>
+      </li>
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">5</span>
+        <div>
+          <h3>Make your assignment stronger</h3>
+          <p class="cdesc">Choose one change that helps your test show real skill.</p>
+          <span class="soon">Opens December 1</span>
+        </div>
+      </li>
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">6</span>
+        <div>
+          <h3>Tell your students where AI fits</h3>
+          <p class="cdesc">Write a clear AI-use statement for one assignment, in words your students will understand.</p>
+          <span class="soon">Opens December 1</span>
+        </div>
+      </li>
+    </ol>
+    <div class="part-head"><p class="part-label">Part 3</p><h3 class="part-name">Back in your course</h3><p class="part-when">Whenever you&rsquo;re ready</p></div>
+    <ol class="chapters">
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">7</span>
+        <div>
+          <h3>There&rsquo;s a name for this</h3>
+          <p class="cdesc">A short look at AI literacy frameworks, including SEE.</p>
+          <span class="soon">Coming soon</span>
+        </div>
+      </li>
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">8</span>
+        <div>
+          <h3>Label your assignments</h3>
+          <p class="cdesc">Simple labels that tell students where AI fits in each assignment.</p>
+          <span class="soon">Coming soon</span>
+        </div>
+      </li>
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">9</span>
+        <div>
+          <h3>Help your students use AI well</h3>
+          <p class="cdesc">Plain questions and habits that protect students and their learning.</p>
+          <span class="soon">Coming soon</span>
+        </div>
+      </li>
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">10</span>
+        <div>
+          <h3>Talk with your students about AI</h3>
+          <p class="cdesc">How to start the conversation, and what to do when something seems off.</p>
+          <span class="soon">Coming soon</span>
+        </div>
+      </li>
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">11</span>
+        <div>
+          <h3>Try these with your mentor group or class</h3>
+          <p class="cdesc">Three short activities to use with colleagues or students.</p>
+          <span class="soon">Coming soon</span>
+        </div>
+      </li>
+      <li class="chapter pending">
+        <span class="cnum" aria-hidden="true">12</span>
+        <div>
+          <h3>AI and what you&rsquo;ve learned this fall</h3>
+          <p class="cdesc">How AI connects to the rest of the academy, one week at a time.</p>
+          <span class="soon">Coming soon</span>
+        </div>
+      </li>
+    </ol>
+  </section>
 
-    <p>This workbook goes with Week 7 of the academy, and it&rsquo;s yours to keep. It has three parts:</p>
-    <table>
-      <thead><tr><th scope="col">Part</th><th scope="col">When</th><th scope="col">Time</th></tr></thead>
-      <tbody>
-        <tr><td><strong>1. Before we meet</strong></td><td>Before December 1</td><td>About 35 minutes, plus an optional 7-minute review</td></tr>
-        <tr><td><strong>2. When we meet</strong></td><td>During the live session on December 1</td><td>Used live</td></tr>
-        <tr><td><strong>3. Back in your course</strong></td><td>Whenever you&rsquo;re ready</td><td>Take what you need</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Good to know</h3>
+  <section aria-labelledby="how" class="how">
+    <h2 id="how">How this workbook works</h2>
+    <p>This workbook goes with Week 7 of the Association of Veterinary Technician Educators (AVTE) Vet Tech New Faculty Academy, and it&rsquo;s yours to keep.</p>
     <ul>
       <li>Your answers save in this browser as you type, so you can stop and come back.</li>
       <li>Nothing you type here is sent anywhere. It stays on your device.</li>
@@ -61,45 +239,16 @@
       <li>It works on a phone. Chapter 3 is easier on a computer, since you&rsquo;ll be copying and pasting.</li>
       <li>Any free AI tool works for everything here: ChatGPT, Microsoft Copilot, Google Gemini, Claude, or another you like.</li>
     </ul>
-
     <div class="card">
       <span class="card-label">What to bring on December 1</span>
       <p>The test or assignment you used in Chapter 3, AI&rsquo;s answer, and the score you gave it. If you print or save Chapter 3 as a PDF, that covers all three.</p>
     </div>
-
-    <h2 id="contents">Contents</h2>
-    <ol class="contents">
-      <li class="part">Part 1 &middot; Before we meet</li>
-      <li class="ch"><a href="chapters/01-what-ai-can-and-cant-do.html"><span class="num">1</span><span class="t">What AI tools can and can&rsquo;t do</span><span class="when">5 min</span></a></li>
-      <li class="ch"><a href="chapters/02-try-it-for-you.html"><span class="num">2</span><span class="t">Try it on something just for you</span><span class="when">15 min</span></a></li>
-      <li class="ch"><a href="chapters/03-let-ai-take-your-test.html"><span class="num">3</span><span class="t">Let AI take one of your tests</span><span class="when">15 min</span></a></li>
-      <li class="ch"><a href="chapters/tilt-review.html"><span class="num"></span><span class="t">Optional: a quick review of TILT</span><span class="when">7 min</span></a></li>
-
-      <li class="part">Part 2 &middot; When we meet</li>
-      <li class="ch"><span class="soon"><span class="num">4</span><span class="t">Your clinical eye and your teaching eye</span><span class="when">Ready by Dec 1</span></span></li>
-      <li class="ch"><span class="soon"><span class="num">5</span><span class="t">Make your assignment stronger</span><span class="when">Ready by Dec 1</span></span></li>
-      <li class="ch"><span class="soon"><span class="num">6</span><span class="t">Tell your students where AI fits</span><span class="when">Ready by Dec 1</span></span></li>
-
-      <li class="part">Part 3 &middot; Back in your course</li>
-      <li class="ch"><span class="soon"><span class="num">7</span><span class="t">There&rsquo;s a name for this</span><span class="when">After Dec 1</span></span></li>
-      <li class="ch"><span class="soon"><span class="num">8</span><span class="t">Label your assignments</span><span class="when">After Dec 1</span></span></li>
-      <li class="ch"><span class="soon"><span class="num">9</span><span class="t">Help your students use AI well</span><span class="when">After Dec 1</span></span></li>
-      <li class="ch"><span class="soon"><span class="num">10</span><span class="t">Talk with your students about AI</span><span class="when">After Dec 1</span></span></li>
-      <li class="ch"><span class="soon"><span class="num">11</span><span class="t">Try these with your mentor group or class</span><span class="when">After Dec 1</span></span></li>
-      <li class="ch"><span class="soon"><span class="num">12</span><span class="t">AI and what you&rsquo;ve learned this fall</span><span class="when">After Dec 1</span></span></li>
-    </ol>
-  </div>
-
-  <nav class="chapter-nav" aria-label="Next chapter">
-    <a class="next" href="chapters/01-what-ai-can-and-cant-do.html"><small>Start here</small><span>1. What AI tools can and can&rsquo;t do &rarr;</span></a>
-  </nav>
+  </section>
 </main>
 
-<footer class="book-footer">
+<footer class="book-footer home-footer">
   <p>Created by Stephanie Self for the AVTE Vet Tech New Faculty Academy. Shared under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA 4.0</a> license: you&rsquo;re welcome to adapt it for your own program with credit.</p>
 </footer>
-</div>
-</div>
-<script src="js/book.js?v=4"></script>
+<script src="js/book.js?v=5"></script>
 </body>
 </html>
