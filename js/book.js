@@ -12,18 +12,18 @@
     { n: 2, track: true, href: 'chapters/02-try-it-for-you.html', title: 'Try it on something just for you' },
     { n: 3, track: true, href: 'chapters/03-let-ai-take-your-test.html', title: 'Let AI take one of your tests' },
     { sub: true, href: 'resources/sample-assignment.html', title: 'Ready-made case assignment' },
-    { href: 'chapters/tilt-review.html', title: 'A quick look at TILT', track: true },
+    { n: 4, track: true, href: 'chapters/04-a-quick-look-at-tilt.html', title: 'A quick look at TILT' },
     { part: 'Part 2 · When we meet' },
-    { n: 4, track: true, title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
-    { n: 5, track: true, title: 'Make your assignment stronger', when: 'Dec 1' },
-    { n: 6, track: true, title: 'Tell your students where AI fits', when: 'Dec 1' },
+    { n: 5, track: true, title: 'Your clinical eye and your teaching eye', when: 'Dec 1' },
+    { n: 6, track: true, title: 'Make your assignment stronger', when: 'Dec 1' },
+    { n: 7, track: true, title: 'Tell your students where AI fits', when: 'Dec 1' },
     { title: 'Your Week 7 takeaway', when: 'Dec 1', track: true },
     { part: 'Part 3 · Back in your course' },
-    { n: 7, track: true, title: 'There’s a name for this', when: 'Soon' },
-    { n: 8, track: true, title: 'Label the assignments that count', when: 'Soon' },
-    { n: 9, track: true, title: 'Help your students use AI well', when: 'Soon' },
-    { n: 10, track: true, title: 'Talk with your students about AI', when: 'Soon' },
-    { n: 11, track: true, title: 'Try these with your mentor group or class', when: 'Soon' },
+    { n: 8, track: true, title: 'There’s a name for this', when: 'Soon' },
+    { n: 9, track: true, title: 'Label the assignments that count', when: 'Soon' },
+    { n: 10, track: true, title: 'Help your students use AI well', when: 'Soon' },
+    { n: 11, track: true, title: 'Talk with your students about AI', when: 'Soon' },
+    { n: 12, track: true, title: 'Try these with your mentor group or class', when: 'Soon' },
     { part: 'Appendix' },
     { href: 'resources/label-maker.html', title: 'Assignment label maker' },
     { href: 'index.html#download', title: 'Download as PDF or EPUB' }
@@ -351,7 +351,7 @@
     }
   });
 
-  /* ---- Chapter 9: student handout preview ---- */
+  /* ---- Chapter 10: student handout preview ---- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-handout]'), function (form) {
     var out = document.querySelector(form.getAttribute('data-handout'));
     if (!out) return;
@@ -384,7 +384,7 @@
   });
   window.addEventListener('afterprint', function () { document.body.classList.remove('print-handout'); });
 
-  /* ---- Chapter 6: move the generated draft into the editable box ---- */
+  /* ---- Chapter 7: move the generated draft into the editable box ---- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-action="use-draft"]'), function (btn) {
     btn.addEventListener('click', function () {
       var fin = document.getElementById(btn.getAttribute('data-target'));

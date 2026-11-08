@@ -17,10 +17,10 @@ For this workbook in particular:
 ## Outcomes
 
 The workbook holds to the two published Week 7 objectives, word for word. Every chapter works toward one of them.
-- **Evaluate:** Evaluate the benefits, risks, and ethics of generative AI in teaching and assessment. (Chapters 1 to 4)
-- **Create:** Design an AI-informed teaching approach and a clear course AI-use expectation for your context. (Chapters 5 and 6; Part 3, Chapters 7 to 11, carries it into the course)
+- **Evaluate:** Evaluate the benefits, risks, and ethics of generative AI in teaching and assessment. (Chapters 1 to 3 and 5)
+- **Create:** Design an AI-informed teaching approach and a clear course AI-use expectation for your context. (Chapters 6 and 7; Part 3, Chapters 8 to 12, carries it into the course)
 
-Nothing is submitted for grading. Chapter 6 ends with a one-page "Week 7 takeaway" (the revised assignment and the AI-use statement) that participants save as a PDF and post in a follow-up discussion, then reply to two colleagues. Evaluate is met through the work itself and needs no separate submission.
+Nothing is submitted for grading. Chapter 7 ends with a one-page "Week 7 takeaway" (the revised assignment and the AI-use statement) that participants save as a PDF and post in a follow-up discussion, then reply to two colleagues. Evaluate is met through the work itself and needs no separate submission.
 
 ## Alignment map
 
@@ -31,15 +31,15 @@ The line from start to finish. The academy objective this week rolls up to is "E
 | 1 | Evaluate | Where AI helps, where it slips, what stays out | Readiness check |
 | 2 | Evaluate | Benefits and risks from the learner's seat; what they held back | Four Padlet reflections |
 | 3 | Evaluate | The risk to one of their own tests | Score; passed, partly, or failed |
-| TILT page | Gets ready for Create | Purpose, Task, Criteria | Which part is thinnest |
-| 4 | Evaluate | Clinical eye and teaching eye on the Chapter 3 result | One benefit, one risk, one ethical line for their teaching |
-| 5 | Create (AI-informed teaching approach) | One change, based on what AI did, then a re-test | The revised part and the one change |
-| 6 | Create (clear course AI-use expectation) | Course-level expectation, then a label and statement for the changed assignment | The course expectation, label, and statement |
-| 7 | Create | SEE Framework in our own words, mapped to Chapters 1 to 6 | Self-check on safely, ethically, effectively |
-| 8 | Create | Labels for the few assignments that count (where students show real skill), not every assignment | Labels and statements for up to three assignments |
-| 9 | Create | Habits for students | A one-page student handout (prints on its own) |
-| 10 | Create | First conversation; what to do when work seems off (no detectors) | A conversation plan and a first step |
-| 11 | Create | Activities adapted from SEE formats, with vet tech examples | A plan to run one activity |
+| 4 (TILT) | Gets ready for Create | Purpose, Task, Criteria | Which part is thinnest |
+| 5 | Evaluate | Clinical eye and teaching eye on the Chapter 3 result | One benefit, one risk, one ethical line for their teaching |
+| 6 | Create (AI-informed teaching approach) | One change, based on what AI did, then a re-test | The revised part and the one change |
+| 7 | Create (clear course AI-use expectation) | Course-level expectation, then a label and statement for the changed assignment | The course expectation, label, and statement |
+| 8 | Create | SEE Framework in our own words, mapped to Chapters 1 to 7 | Self-check on safely, ethically, effectively |
+| 9 | Create | Labels for the few assignments that count (where students show real skill), not every assignment | Labels and statements for up to three assignments |
+| 10 | Create | Habits for students | A one-page student handout (prints on its own) |
+| 11 | Create | First conversation; what to do when work seems off (no detectors) | A conversation plan and a first step |
+| 12 | Create | Activities adapted from SEE formats, with vet tech examples | A plan to run one activity |
 | Takeaway | Both | `chapters/week7-takeaway.html` pulls the answers above from the same browser, grouped under each objective | One-page PDF posted in the Resource Exchange |
 
 Answers from other chapters are read with `data-from="page-stem:key"` (see `loadFrom` in `js/book.js`). Renaming a chapter file or a `data-save` key breaks the takeaway, so update both together.
@@ -65,8 +65,8 @@ Lean into AVTE branding, not OCTC's.
 ## Content rules
 
 - SEE Framework (AI for Education, https://www.aiforeducation.io/the-see-framework-for-generative-ai-literacy; Stephanie completed their SEE Train-the-Trainer in August 2026): describe it in our own words, cite and link it, adapt activity formats with an "adapted from" line. Never reproduce its tables, graphics, reflection questions, or wording.
-- Small teaching (James M. Lang, *Small Teaching*, 2nd ed., 2021): the "one meaningful change" idea. Named and cited in Chapter 5 where it's used, and in Chapter 7 with the other names.
-- TILT (Winkelmes): a short page in Part 1 prep, after Chapter 3 (`chapters/tilt-review.html`; the filename stays because Chapter 5 reads its saved answers). Planning assumption: the academy's Week 5 does not cover TILT, so the page is written for people meeting it for the first time, with a skim path for those who already use it. Chapter 5's revision planner uses its plain questions (Why it matters / What to do / What good looks like) with the TILT terms beside them. Don't re-teach it anywhere else. TILT Higher Ed materials are CC BY-NC-SA 4.0 (same as this workbook), so adapt them with credit. Chapter 5's revision planner follows the flow of Stephanie's TILT reflection worksheet: the assignment as it is now, the revised version, one change I'll make, and support I need. Leave out Kentucky Essential Skills references; this audience is national.
+- Small teaching (James M. Lang, *Small Teaching*, 2nd ed., 2021): the "one meaningful change" idea. Named and cited in Chapter 6 where it's used, and in Chapter 8 with the other names.
+- TILT (Winkelmes): Chapter 4, the last chapter of Part 1 prep (`chapters/04-a-quick-look-at-tilt.html`; Chapter 6 reads its saved answers). Planning assumption: the academy's Week 5 does not cover TILT, so the page is written for people meeting it for the first time, with a skim path for those who already use it. Chapter 6's revision planner uses its plain questions (Why it matters / What to do / What good looks like) with the TILT terms beside them. Don't re-teach it anywhere else. TILT Higher Ed materials are CC BY-NC-SA 4.0 (same as this workbook), so adapt them with credit. Chapter 6's revision planner follows the flow of Stephanie's TILT reflection worksheet: the assignment as it is now, the revised version, one change I'll make, and support I need. Leave out Kentucky Essential Skills references; this audience is national.
 - The Padlet wall is embedded in Chapter 2 and is password protected. The password stays in Canvas, never in this public repo, and so does anything about participants. After the Fall 2026 cohort, replace the embed with a short note that the wall was for that cohort.
 - Clinical content (cases, examples) gets a field check from Laura Neely or Tara before release.
 - Answers save only in the reader's browser (`localStorage`). Nothing is sent anywhere.
