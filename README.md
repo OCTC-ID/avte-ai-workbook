@@ -20,9 +20,9 @@ Answers save in the reader's browser (`localStorage`). Nothing is sent anywhere.
 
 ## Status
 
-- Part 1 (Chapters 1–3): drafted
-- Part 2 (Chapters 4–6): due before December 1
-- Part 3 (Chapters 7–12): after the session
+- Part 1 (Chapters 1–4): live
+- Part 2 (Chapters 5–7 and the Week 7 takeaway): drafted, opens December 1
+- Part 3 (Chapters 8–12): drafted, opens after the session
 
 ## Style
 
