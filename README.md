@@ -1,5 +1,7 @@
 # AI and Your Teaching
 
+https://octc-id.github.io/avte-ai-workbook/
+
 A workbook for new veterinary technology faculty, made for Week 7 (AI and Teaching) of the AVTE Vet Tech New Faculty Academy.
 
 ## How it's built
