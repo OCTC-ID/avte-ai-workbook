@@ -593,9 +593,14 @@ textarea:focus, input[type="text"]:focus, select:focus { background: var(--pad-f
 }
 .home-corner:hover { background: var(--blue); color: #fff; }
 .home-corner:focus-visible { outline-offset: 3px; }
+.home-mobile { display: none; }
 @media (max-width: 959.98px) {
-  .home-corner { top: .55rem; padding: .4rem; }
-  .home-corner span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .mobilebar { padding-right: 3.75rem; }
+  .home-corner { display: none; }
+  .home-mobile {
+    display: inline-flex; align-items: center; justify-content: center; color: var(--blue);
+    border: 2px solid var(--blue); border-radius: 6px; padding: .3rem .4rem; background: #fff;
+  }
+  .home-mobile:hover { background: var(--blue); color: #fff; }
+  .home-mobile span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
-@media print { .home-corner, .home-bar .home-icon { display: none !important; } }
+@media print { .home-corner, .home-mobile, .home-bar .home-icon { display: none !important; } }

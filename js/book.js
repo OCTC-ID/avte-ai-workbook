@@ -62,6 +62,13 @@
     var skip = document.querySelector('.skip-link');
     if (skip && skip.nextSibling) document.body.insertBefore(home, skip.nextSibling);
     else document.body.insertBefore(home, document.body.firstChild);
+    // On phones, the house sits to the left of the Contents button instead
+    var bar = document.querySelector('.mobilebar');
+    if (bar) {
+      var mhome = home.cloneNode(true);
+      mhome.className = 'home-mobile';
+      bar.insertBefore(mhome, bar.firstChild);
+    }
   }
 
   /* ---- Contents drawer on phones ---- */
