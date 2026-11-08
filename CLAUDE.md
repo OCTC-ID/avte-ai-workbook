@@ -51,7 +51,7 @@ Lean into AVTE branding, not OCTC's.
 
 - `index.html`: cover, how the workbook works, contents
 - `chapters/NN-short-name.html`: one page per chapter. Each has a "You'll leave with" card, a short read, a Try It section that ends with a "You'll know you're ready when" card, then Print and Clear buttons at the bottom.
-- `resources/`: supporting pages
+- `resources/`: supporting pages. `resources/label-maker.html` is the appendix tool that draws No AI / AI-supported / AI-integrated PNG labels with paw prints (`js/label-maker.js`, loaded only on that page).
 - The left contents panel is built from the `TOC` list at the top of `js/book.js`. Add a chapter's `href` there when it goes live.
 - Bump the `?v=` number on `book.css` and `book.js` in every page when either file changes.
 
