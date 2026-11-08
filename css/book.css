@@ -334,3 +334,12 @@ textarea:focus, input[type="text"]:focus, select:focus { background: var(--pad-f
   .content main, .content footer.book-footer { max-width: none; }
   .print-copy { background: #fffbe6; border-color: #c9b75f; border-left: 3px solid var(--amaranth); }
 }
+
+/* ---------- Embedded Padlet wall ---------- */
+.padlet { margin: 1.5rem 0; max-width: none; }
+.padlet-note { margin: 0 0 .6rem; }
+.padlet-frame {
+  border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: #f4f4f4;
+}
+.padlet-frame iframe { display: block; width: 100%; height: 640px; border: 0; }
+@media (max-width: 560px) { .padlet-frame iframe { height: 520px; } }
