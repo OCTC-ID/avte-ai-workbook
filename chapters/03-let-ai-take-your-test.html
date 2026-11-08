@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3. Let AI take one of your tests | AI and Your Teaching</title>
+<link rel="stylesheet" href="../css/book.css?v=1">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="book-title" href="../index.html">AI and Your Teaching</a>
+    <nav aria-label="Workbook"><a href="../index.html#contents">Contents</a></nav>
+  </div>
+</header>
+
+<main id="main">
+  <article class="sheet">
+    <p class="kicker">Part 1 &middot; Before we meet &middot; Chapter 3</p>
+    <h1>Let AI take one of your tests</h1>
+    <p class="chapter-time">About 15 minutes</p>
+
+    <div class="card leave">
+      <span class="card-label">You&rsquo;ll leave with</span>
+      <p>Real evidence about one of your own tests or assignments: what happens when a student hands it to AI. This is what we&rsquo;ll work with on December 1.</p>
+    </div>
+
+    <p>Your students have the same tools you just used. This chapter lets you see your own test the way a student with AI would see it. Whatever happens, it&rsquo;s useful. If AI does well, you&rsquo;ve learned something important about that test. If it struggles, you&rsquo;ll want to know why.</p>
+
+    <h2>Pick your test</h2>
+    <p>Choose something you&rsquo;ll give again:</p>
+    <ul>
+      <li>A quiz or a section of an exam</li>
+      <li>A written assignment or discussion prompt</li>
+      <li>A case write-up or care plan</li>
+    </ul>
+    <p>Something written works best. Skills check-offs aren&rsquo;t a fit here, since AI can&rsquo;t place a catheter or restrain a patient. That&rsquo;s worth noticing, though, and we&rsquo;ll talk about it.</p>
+    <p>Before you paste anything, take out student names and anything confidential. Leave the answer key out too.</p>
+    <p><strong>No test of your own yet?</strong> Use the <a href="../resources/sample-assignment.html">ready-made case assignment and rubric</a>.</p>
+
+    <section class="try" aria-labelledby="try-heading">
+      <h2 id="try-heading">Try it</h2>
+
+      <p class="step-label">Step 1</p>
+      <h3 style="margin-top:0">Write down what you&rsquo;re using</h3>
+      <div class="field">
+        <label for="t-name">Which test or assignment did you pick?</label>
+        <span class="hint">The course and a short description, like &ldquo;Pharmacology, Unit 3 quiz.&rdquo;</span>
+        <input type="text" id="t-name" data-save="t-name">
+      </div>
+      <div class="field">
+        <label for="t-questions">Paste the questions or instructions</label>
+        <span class="hint">Optional. Handy if you want everything in one printout.</span>
+        <textarea id="t-questions" class="tall" data-save="t-questions"></textarea>
+      </div>
+
+      <p class="step-label">Step 2</p>
+      <h3 style="margin-top:0">Ask AI to take it the way a student would</h3>
+      <p>Fill this in, copy the prompt, and paste it into your AI tool. Then paste in your questions or instructions where it says to.</p>
+
+      <div class="builder" data-builder="student">
+        <div class="field">
+          <label for="s-level">Where are your students in the program?</label>
+          <select id="s-level" name="s-level" data-save="s-level">
+            <option value="first-year">First year</option>
+            <option value="second-year">Second year</option>
+            <option value="first-semester">First semester</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="s-kind">What kind of work is it?</label>
+          <select id="s-kind" name="s-kind" data-save="s-kind">
+            <option value="quiz">Quiz or exam questions</option>
+            <option value="written assignment">Written assignment</option>
+            <option value="case write-up">Case write-up or care plan</option>
+            <option value="discussion post">Discussion post</option>
+          </select>
+        </div>
+        <fieldset>
+          <legend>How would a student ask?</legend>
+          <div class="choices">
+            <label><input type="radio" name="s-way" value="plain" data-save="s-way" checked> Just answer it</label>
+            <label><input type="radio" name="s-way" value="blend" data-save="s-way"> Make it sound like a student wrote it</label>
+          </div>
+          <span class="hint" style="margin-top:.4rem">Try both if you have time. Students use both.</span>
+        </fieldset>
+        <span class="label" style="font-weight:700;color:var(--blue-dark)">Your prompt</span>
+        <div class="prompt-out" aria-live="polite"></div>
+        <div class="btn-row prompt-tools">
+          <button class="btn" type="button" data-action="copy-prompt">Copy prompt</button>
+          <span class="status" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <p class="step-label">Step 3</p>
+      <h3 style="margin-top:0">Paste in AI&rsquo;s answer</h3>
+      <div class="field">
+        <label for="t-answer">What AI turned in</label>
+        <textarea id="t-answer" class="tall" data-save="t-answer"></textarea>
+      </div>
+
+      <p class="step-label">Step 4</p>
+      <h3 style="margin-top:0">Score it like any student&rsquo;s work</h3>
+      <p>Use your own answer key or rubric, the same way you would on a real submission.</p>
+      <div class="field">
+        <label for="t-score">Your score</label>
+        <span class="hint">Points, a percentage, or rubric levels: whatever you normally use.</span>
+        <input type="text" id="t-score" data-save="t-score">
+      </div>
+      <fieldset>
+        <legend>Overall, did AI pass?</legend>
+        <div class="choices">
+          <label><input type="radio" name="t-result" value="passed" data-save="t-result"> Passed</label>
+          <label><input type="radio" name="t-result" value="partly" data-save="t-result"> Partly</label>
+          <label><input type="radio" name="t-result" value="failed" data-save="t-result"> Failed</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="t-surprise">What surprised you?</label>
+        <span class="hint">One or two sentences is plenty.</span>
+        <textarea id="t-surprise" data-save="t-surprise"></textarea>
+      </div>
+      <div class="field">
+        <label for="t-struggle">Where did AI struggle, if anywhere?</label>
+        <textarea id="t-struggle" data-save="t-struggle"></textarea>
+      </div>
+
+      <div class="card stop">
+        <span class="card-label">Please don&rsquo;t fix it yet</span>
+        <p>If you&rsquo;re like most clinicians, you&rsquo;ll want to start fixing your test right away. Hold off until December 1. Leave it exactly as it is for now. What AI did with it is the evidence we&rsquo;ll work from together, and you&rsquo;ll decide on one good change during the session.</p>
+      </div>
+
+      <div class="card ready">
+        <span class="card-label">You&rsquo;ll know you&rsquo;re ready when</span>
+        <p>You have a score, a pass / partly / fail, and a sentence about what surprised you. Print or save this page as a PDF and have it with you on December 1.</p>
+      </div>
+
+      <div class="page-tools">
+        <div class="btn-row">
+          <button class="btn" type="button" data-action="print">Print or save as PDF</button>
+          <button class="btn secondary" type="button" data-action="clear">Clear my answers</button>
+          <span class="status" role="status" aria-live="polite"></span>
+        </div>
+        <p class="note save-note">Your answers save in this browser as you type.</p>
+      </div>
+    </section>
+  </article>
+
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a href="02-try-it-for-you.html"><small>Back</small><span>&larr; 2. Try it on something just for you</span></a>
+    <a class="next" href="../index.html#contents"><small>See you December 1</small><span>Back to contents &rarr;</span></a>
+  </nav>
+</main>
+
+<footer class="book-footer">
+  <p>AI and Your Teaching &middot; AVTE Vet Tech New Faculty Academy &middot; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</footer>
+<script src="../js/book.js?v=1"></script>
+</body>
+</html>

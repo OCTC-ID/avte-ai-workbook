@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ready-made case assignment and rubric | AI and Your Teaching</title>
+<link rel="stylesheet" href="../css/book.css?v=1">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="book-title" href="../index.html">AI and Your Teaching</a>
+    <nav aria-label="Workbook"><a href="../chapters/03-let-ai-take-your-test.html">Back to Chapter 3</a></nav>
+  </div>
+</header>
+
+<main id="main">
+  <article class="sheet">
+    <p class="kicker">For Chapter 3</p>
+    <h1>Ready-made case assignment</h1>
+    <p class="chapter-time">Use this if you don&rsquo;t have a test or assignment of your own yet.</p>
+
+    <p>Copy everything in the box below into your AI tool, after the prompt from Chapter 3. Then score AI&rsquo;s answer with the rubric underneath.</p>
+
+    <div class="card">
+      <span class="card-label">Copy from here</span>
+      <div id="assignment">
+        <p><strong>Case: Daisy, dental cleaning</strong></p>
+        <p>Daisy is a 10-year-old spayed female Labrador retriever scheduled for a dental cleaning under general anesthesia. At check-in, her owner mentions that Daisy has been drinking more water than usual for the past few weeks.</p>
+        <p>Answer all three parts. Write in complete sentences.</p>
+        <ol>
+          <li><strong>Before anesthesia.</strong> What would you want to check or ask about before Daisy is induced? Explain why each item matters, and explain how the owner&rsquo;s comment changes your plan.</li>
+          <li><strong>During anesthesia.</strong> Which parameters would you monitor? For each one, describe a change that would make you alert the veterinarian right away.</li>
+          <li><strong>At discharge.</strong> Write what you would tell Daisy&rsquo;s owner at pickup, in plain language a client would understand.</li>
+        </ol>
+      </div>
+      <div class="btn-row no-print">
+        <button class="btn secondary" type="button" id="copy-assignment">Copy the assignment</button>
+        <span class="status" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+
+    <h2>Rubric</h2>
+    <p>Score each row, then add them up. 9 points possible.</p>
+    <div class="table-wrap" role="region" aria-label="Rubric" tabindex="0">
+    <table>
+      <thead>
+        <tr><th scope="col">What you&rsquo;re looking for</th><th scope="col">Ready (3)</th><th scope="col">Developing (2)</th><th scope="col">Not yet (1)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Clinical reasoning before anesthesia</th>
+          <td>Names appropriate checks and explains why each matters. Connects the increased thirst to a specific change in the plan.</td>
+          <td>Names appropriate checks, but the reasons are thin or the owner&rsquo;s comment isn&rsquo;t connected to the plan.</td>
+          <td>Lists checks without reasons, or misses the owner&rsquo;s comment.</td>
+        </tr>
+        <tr>
+          <th scope="row">Monitoring during anesthesia</th>
+          <td>Names the key parameters and a clear, specific change in each that would prompt alerting the veterinarian.</td>
+          <td>Names most parameters; the changes to watch for are vague.</td>
+          <td>Few parameters, or no sense of when to alert the veterinarian.</td>
+        </tr>
+        <tr>
+          <th scope="row">Client communication at discharge</th>
+          <td>Plain, warm, accurate, and specific about what to watch for at home and when to call.</td>
+          <td>Accurate, but uses clinical terms a client may not understand, or is missing what to watch for.</td>
+          <td>Unclear, inaccurate, or not written for a client.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="card">
+      <span class="card-label">A note for your teaching eye</span>
+      <p>As you score, ask yourself: does this answer show me what a student can do, or what a student can find? Hold onto that thought for December 1.</p>
+    </div>
+
+    <div class="page-tools">
+      <div class="btn-row">
+        <button class="btn" type="button" data-action="print">Print or save as PDF</button>
+        <span class="status" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </article>
+
+  <nav class="chapter-nav" aria-label="Chapters">
+    <a href="../chapters/03-let-ai-take-your-test.html"><small>Back</small><span>&larr; 3. Let AI take one of your tests</span></a>
+  </nav>
+</main>
+
+<footer class="book-footer">
+  <p>AI and Your Teaching &middot; AVTE Vet Tech New Faculty Academy &middot; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p>
+</footer>
+<script src="../js/book.js?v=1"></script>
+<script>
+  document.getElementById('copy-assignment').addEventListener('click', function () {
+    var btn = this, text = document.getElementById('assignment').innerText.trim();
+    var status = btn.parentNode.querySelector('.status');
+    function done(ok) { status.textContent = ok ? 'Copied.' : 'Copy didn’t work here. Select the text and copy it yourself.'; }
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+    else done(false);
+  });
+</script>
+</body>
+</html>
