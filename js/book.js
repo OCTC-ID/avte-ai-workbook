@@ -51,6 +51,19 @@
     tocNav.innerHTML = html + '</ol>';
   }
 
+  /* ---- Home button, upper right on every page except the cover ---- */
+  if (!document.body.classList.contains('home-page')) {
+    var home = document.createElement('a');
+    home.className = 'home-corner';
+    home.href = root + 'index.html';
+    home.setAttribute('aria-label', 'Workbook home');
+    home.title = 'Workbook home';
+    home.innerHTML = '<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5.5v-6h-5v6H4a1 1 0 0 1-1-1z" fill="currentColor"/></svg><span>Home</span>';
+    var skip = document.querySelector('.skip-link');
+    if (skip && skip.nextSibling) document.body.insertBefore(home, skip.nextSibling);
+    else document.body.insertBefore(home, document.body.firstChild);
+  }
+
   /* ---- Contents drawer on phones ---- */
   var sidebar = document.getElementById('sidebar');
   var toggle = document.querySelector('.toc-toggle');
