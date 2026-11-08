@@ -32,6 +32,7 @@
     { n: 12, track: true, title: 'Try these with your mentor group or class', when: 'Soon' },
     { part: 'Appendix' },
     { href: 'resources/label-maker.html', title: 'Assignment label maker' },
+    { href: 'resources/keep-learning.html', title: 'Keep learning' },
     { href: 'index.html#download', title: 'Download as PDF or EPUB' }
   ];
 
