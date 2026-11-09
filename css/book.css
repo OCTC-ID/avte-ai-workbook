@@ -539,7 +539,7 @@ textarea:focus, input[type="text"]:focus, select:focus { background: var(--pad-f
   .takeaway-page .field { margin: .2rem 0; }
   .takeaway-page input[type="text"] { border: 0; background: none; padding: 0; }
   .takeaway-page .book-footer { display: none; }
-  .tk-section > .verb, .objective-tag .verb { color: var(--blue); background: none; padding: 0; font-size: 10pt; }
+  .tk-section > .verb, .objective-tag .verb, .objective-tag .verb.prep { color: var(--blue); background: none; padding: 0; font-size: 10pt; }
   @page { margin: .5in; }
 }
 .chapter-quote {
