@@ -15,11 +15,11 @@
      Facilitator access: a password unlocks everything in one browser. Only its
      SHA-256 hash is stored here. Add ?preview=0 to any address to lock again. ---- */
   var RELEASE = {
-    part2: '2026-12-01T18:00:00-05:00',  // 6:00 pm ET, an hour before the session
-    part3: '2026-12-01T20:15:00-05:00'   // 8:15 pm ET, when the session ends
+    part2: '2026-12-01T16:00:00-05:00',  // 4:00 pm ET / 3:00 pm CT, three hours before the session
+    part3: '2026-12-01T20:15:00-05:00'   // 8:15 pm ET / 7:15 pm CT, when the session ends
   };
-  var RELEASE_TEXT = { part2: 'December 1 at 6:00 pm Eastern', part3: 'December 1 at 8:15 pm Eastern, after our session' };
-  var PASS_HASH = '4c9b54bcf1316c6619aa2877548c39b48f47a581ced6eb102bf6371e3336929e';
+  var RELEASE_TEXT = { part2: 'December 1 at 4:00 pm Eastern (3:00 pm Central)', part3: 'December 1 at 8:15 pm Eastern (7:15 pm Central), after our session' };
+  var PASS_HASH = '76f00c2dd3e8736de1df02aa014a737606fe8b21a70ee7d2433333edbbbdd604';
   try { if (/[?&]preview=0/.test(location.search)) localStorage.removeItem('avte-wb:preview'); } catch (e) {}
   function previewing() { try { return localStorage.getItem('avte-wb:preview') === PASS_HASH; } catch (e) { return false; } }
   function isLocked(lock) {
