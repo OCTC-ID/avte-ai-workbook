@@ -702,3 +702,44 @@ footer.site-footer {
 @media print { .facilitator { display: none; } }
 .cover-access .facilitator { margin: 1.25rem 0 0; }
 .cover-access .facilitator-form { max-width: 24rem; }
+
+/* ---------- Worked example: a filled-in legal pad page ----------
+   Ruled lines and a red margin line set a worked example apart from the
+   reader's own (blank) pad fields. */
+.worked {
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--pad-edge);
+  border-radius: 6px;
+  background-color: var(--pad);
+  background-image:
+    linear-gradient(90deg, transparent 2.6rem, var(--pad-margin) 2.6rem, var(--pad-margin) calc(2.6rem + 2px), transparent calc(2.6rem + 2px)),
+    repeating-linear-gradient(to bottom, transparent 0, transparent calc(1.75rem - 1px), #c7d6ea calc(1.75rem - 1px), #c7d6ea 1.75rem);
+  background-position: 0 0, 0 .45rem;
+  box-shadow: 0 1px 3px rgba(20, 75, 142, .12);
+}
+.worked > summary {
+  cursor: pointer;
+  list-style-position: inside;
+  padding: .75rem 1rem .75rem 3.2rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--pad);
+  border-radius: 6px;
+}
+.worked > summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.worked[open] > summary { border-bottom: 1px solid var(--pad-edge); border-radius: 6px 6px 0 0; }
+.worked .worked-body { padding: .75rem 1rem 1rem 3.2rem; line-height: 1.75rem; }
+.worked .worked-body p, .worked .worked-body ul { margin: 0 0 1.75rem; }
+.worked .worked-body ul { padding-left: 1.1rem; }
+.worked .worked-body h4 { margin: 0; font-size: 1rem; line-height: 1.75rem; color: var(--blue); }
+.worked .worked-from { font-size: .9rem; color: var(--muted); margin-bottom: 0; }
+.worked blockquote { margin: 0 0 1.75rem; padding: 0 0 0 .8rem; border-left: 3px solid var(--blue); font-style: italic; }
+@media (max-width: 40rem) {
+  .worked { background-image:
+    linear-gradient(90deg, transparent 1.6rem, var(--pad-margin) 1.6rem, var(--pad-margin) calc(1.6rem + 2px), transparent calc(1.6rem + 2px)),
+    repeating-linear-gradient(to bottom, transparent 0, transparent calc(1.75rem - 1px), #c7d6ea calc(1.75rem - 1px), #c7d6ea 1.75rem); }
+  .worked > summary, .worked .worked-body { padding-left: 2.2rem; }
+}
+@media print {
+  .worked { box-shadow: none; }
+}
