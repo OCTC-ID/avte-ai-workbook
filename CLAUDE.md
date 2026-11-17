@@ -40,7 +40,7 @@ The line from start to finish. The academy objective this week rolls up to is "E
 | 10 | Create | Habits for students | A one-page student handout (prints on its own) |
 | 11 | Create | First conversation; what to do when work seems off (no detectors) | A conversation plan and a first step |
 | 12 | Create | Activities adapted from SEE formats, with vet tech examples | A plan to run one activity |
-| Takeaway | Both | `chapters/week7-takeaway.html` pulls the answers above from the same browser, grouped under each objective | One-page PDF posted in the Resource Exchange |
+| Takeaway | Both | `chapters/week7-takeaway.html` pulls the answers above from the same browser, grouped under each objective | One-page PDF posted in the Week 7 module's Apply discussion ("Apply: One change, and where AI fits") |
 
 Answers from other chapters are read with `data-from="page-stem:key"` (see `loadFrom` in `js/book.js`). Renaming a chapter file or a `data-save` key breaks the takeaway, so update both together.
 
