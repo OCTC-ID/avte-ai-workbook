@@ -703,6 +703,19 @@ footer.site-footer {
 .cover-access .facilitator { margin: 1.25rem 0 0; }
 .cover-access .facilitator-form { max-width: 24rem; }
 
+/* Patrick Hand (SIL Open Font License, fonts/PatrickHand-OFL.txt), hosted with the workbook.
+   Used only for the answers in a worked example, so they read as handwriting. */
+@font-face { font-family: "Patrick Hand"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/patrick-hand-latin-400.woff2") format("woff2"); }
+.worked .worked-body li, .worked .worked-body p:not(.worked-from), .worked blockquote {
+  font-family: "Patrick Hand", "Segoe Print", "Comic Sans MS", var(--sans);
+  font-size: 1.15rem; font-style: normal; color: #1d2a4a;
+}
+.worked .worked-body li strong, .worked .worked-body p:not(.worked-from) > strong:first-child {
+  font-family: var(--sans); font-size: .9rem; color: var(--ink);
+}
+.worked blockquote strong { font-family: inherit; font-size: inherit; color: inherit; }
+
 /* ---------- Worked example: a filled-in legal pad page ----------
    Ruled lines and a red margin line set a worked example apart from the
    reader's own (blank) pad fields. */
@@ -733,7 +746,7 @@ footer.site-footer {
 .worked .worked-body ul { padding-left: 1.1rem; }
 .worked .worked-body h4 { margin: 0; font-size: 1rem; line-height: 1.75rem; color: var(--blue); }
 .worked .worked-from { font-size: .9rem; color: var(--muted); margin-bottom: 0; }
-.worked blockquote { margin: 0 0 1.75rem; padding: 0 0 0 .8rem; border-left: 3px solid var(--blue); font-style: italic; }
+.worked blockquote { margin: 0 0 1.75rem; padding: 0 0 0 .8rem; border-left: 3px solid var(--blue); }
 @media (max-width: 40rem) {
   .worked { background-image:
     linear-gradient(90deg, transparent 1.6rem, var(--pad-margin) 1.6rem, var(--pad-margin) calc(1.6rem + 2px), transparent calc(1.6rem + 2px)),

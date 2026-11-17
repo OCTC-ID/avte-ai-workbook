@@ -52,6 +52,7 @@ Lean into AVTE branding, not OCTC's.
 - Deep blue `#144b8e` for headings, links, and any small text. `#c8102e` for small text that must read as red.
 - Every place participants write is pale legal-pad yellow (`--pad`) with the red margin line.
 - Serif headings, sans body.
+- Worked examples (`details.worked`, Chapter 6) look like a filled-in legal pad: ruled lines, red margin line, and the answers in Patrick Hand (self-hosted in `fonts/`, SIL OFL). Labels and headings stay in the regular fonts. Use the handwritten font nowhere else.
 
 ## Structure
 
