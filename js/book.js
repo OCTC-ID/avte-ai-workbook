@@ -101,6 +101,13 @@
   });
   if (currentItem && currentItem.track && getStatus(currentItem.href) !== 'done') setStatus(currentItem.href, 'started');
 
+  // On the cover, which has no contents panel, show facilitator access under the contents
+  Array.prototype.forEach.call(document.querySelectorAll('[data-access-slot]'), function (slot) {
+    if (!anyLocked()) return;
+    slot.innerHTML = accessForm('access-cover');
+    wireAccess(slot);
+  });
+
   // A locked chapter opened by direct link shows a notice instead of its content
   if (currentItem && isLocked(currentItem.lock)) {
     var sheet = document.querySelector('.sheet');
