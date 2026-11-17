@@ -10,7 +10,8 @@ For this workbook in particular:
 - Coaching and friendly, still professional. Second person ("you"), contractions, plain verbs, short sentences.
 - "Test or assignment" over "assessment," except where it echoes the academy's Week 5 title.
 - No higher-ed jargon ("pedagogical," "leverage," "scaffold," "authentic assessment" → "assignments that show real skill").
-- No punchy "it's X, not Y" lines, no "here's the thing," no tidy groups of three, no dramatic colons.
+- No punchy "it's X, not Y" lines, no "here's the thing," no forced three-part slogans.
+- Em dashes, semicolons, colons, and ellipses are fine when they're well used and used sparingly. Don't strip them out to avoid sounding like AI, and don't add them to sound like Stephanie.
 - No slogan-style shorthand (compact catchphrases like "experience first, name second"). Say the plain thing in a full sentence.
 - The core idea is "your clinical eye and your teaching eye."
 
