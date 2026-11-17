@@ -80,6 +80,7 @@
     { part: 'Appendix' },
     { href: 'resources/label-maker.html', title: 'Assignment label maker' },
     { href: 'resources/keep-learning.html', title: 'Keep learning' },
+    { href: 'resources/session-slides.html', lock: 'part3', title: 'Session slides', when: 'Dec 1' },
     { href: 'index.html#download', title: 'Download as PDF or EPUB' }
   ];
 
