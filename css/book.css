@@ -689,3 +689,14 @@ footer.site-footer {
 .reading-list .cite { margin: 0 0 .25rem; }
 .reading-list .why { margin: 0; color: var(--muted); font-size: .95rem; }
 .chapter:not(.pending) .soon { display: none; }
+
+/* ---------- Facilitator access (locked parts) ---------- */
+.facilitator { margin: 1rem .5rem .5rem; font-size: .88rem; }
+.facilitator summary { cursor: pointer; color: var(--muted); }
+.facilitator-form { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-top: .5rem; }
+.facilitator-form label { width: 100%; font-weight: 700; color: var(--blue-dark); }
+.facilitator-form input { flex: 1 1 8rem; min-width: 0; padding: .4rem .5rem; border: 1px solid var(--rule); border-radius: 6px; font: inherit; }
+.facilitator-form .btn { padding: .4rem .8rem; }
+.facilitator-form .status { width: 100%; }
+.sheet > .facilitator { margin: 1.5rem 0 0; }
+@media print { .facilitator { display: none; } }

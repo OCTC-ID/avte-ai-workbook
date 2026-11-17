@@ -9,16 +9,52 @@
   Array.prototype.forEach.call(document.querySelectorAll('[data-version]'), function (el) { el.textContent = VERSION; });
   Array.prototype.forEach.call(document.querySelectorAll('[data-updated]'), function (el) { el.textContent = LAST_UPDATED; });
 
-  /* ---- Which parts are open. Set a part to true to hide it from the contents
-     panel and the cover until it opens. Add ?preview=1 to any page address to
-     see locked parts in this browser anyway (?preview=0 turns that off). ---- */
-  var LOCKED = { part2: false, part3: false };
-  try {
-    var pv = /[?&]preview=([01])/.exec(location.search);
-    if (pv) localStorage.setItem('avte-wb:preview', pv[1]);
-  } catch (e) {}
-  function previewing() { try { return localStorage.getItem('avte-wb:preview') === '1'; } catch (e) { return false; } }
-  function isLocked(lock) { return !!(lock && LOCKED[lock] && !previewing()); }
+  /* ---- When each part opens. Before its date, a part's chapters show as
+     coming soon in the contents and on the cover, and its pages show a notice
+     instead of the chapter. Times are Eastern (-05:00 in December).
+     Facilitator access: a password unlocks everything in one browser. Only its
+     SHA-256 hash is stored here. Add ?preview=0 to any address to lock again. ---- */
+  var RELEASE = {
+    part2: '2026-12-01T18:00:00-05:00',  // 6:00 pm ET, an hour before the session
+    part3: '2026-12-01T20:15:00-05:00'   // 8:15 pm ET, when the session ends
+  };
+  var RELEASE_TEXT = { part2: 'December 1 at 6:00 pm Eastern', part3: 'December 1 at 8:15 pm Eastern, after our session' };
+  var PASS_HASH = '4c9b54bcf1316c6619aa2877548c39b48f47a581ced6eb102bf6371e3336929e';
+  try { if (/[?&]preview=0/.test(location.search)) localStorage.removeItem('avte-wb:preview'); } catch (e) {}
+  function previewing() { try { return localStorage.getItem('avte-wb:preview') === PASS_HASH; } catch (e) { return false; } }
+  function isLocked(lock) {
+    if (!lock || !RELEASE[lock] || previewing()) return false;
+    return Date.now() < Date.parse(RELEASE[lock]);
+  }
+  function anyLocked() { return isLocked('part2') || isLocked('part3'); }
+  function sha256(text) {
+    if (!(window.crypto && crypto.subtle && window.TextEncoder)) return Promise.reject(new Error('no crypto'));
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+    });
+  }
+  function accessForm(id) {
+    return '<details class="facilitator"><summary>Facilitator access</summary>' +
+      '<form class="facilitator-form" data-access><label for="' + id + '">Password</label>' +
+      '<input type="password" id="' + id + '" autocomplete="current-password">' +
+      '<button class="btn" type="submit">Unlock</button>' +
+      '<span class="status" role="status" aria-live="polite"></span></form></details>';
+  }
+  function wireAccess(root) {
+    Array.prototype.forEach.call((root || document).querySelectorAll('[data-access]'), function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = form.querySelector('input'), status = form.querySelector('.status');
+        sha256(input.value.trim()).then(function (h) {
+          if (h === PASS_HASH) {
+            try { localStorage.setItem('avte-wb:preview', h); } catch (err) {}
+            status.textContent = 'Unlocked. Reloading…';
+            location.reload();
+          } else { status.textContent = 'That password didn’t work.'; input.select(); }
+        }, function () { status.textContent = 'This browser can’t check the password. Try another browser.'; });
+      });
+    });
+  }
 
   /* ---- Table of contents (edit this list as chapters go live) ---- */
   var TOC = [
@@ -36,11 +72,11 @@
     { n: 7, track: true, href: 'chapters/07-tell-your-students-where-ai-fits.html', lock: 'part2', title: 'Tell your students where AI fits', when: 'Dec 1' },
     { href: 'chapters/week7-takeaway.html', lock: 'part2', title: 'Your Week 7 takeaway', when: 'Dec 1', track: true },
     { part: 'Part 3 · Back in your course' },
-    { n: 8, track: true, href: 'chapters/08-theres-a-name-for-this.html', lock: 'part3', title: 'There’s a name for this', when: 'Soon' },
-    { n: 9, track: true, href: 'chapters/09-label-the-assignments-that-count.html', lock: 'part3', title: 'Label the assignments that count', when: 'Soon' },
-    { n: 10, track: true, href: 'chapters/10-help-your-students-use-ai-well.html', lock: 'part3', title: 'Help your students use AI well', when: 'Soon' },
-    { n: 11, track: true, href: 'chapters/11-talk-with-your-students-about-ai.html', lock: 'part3', title: 'Talk with your students about AI', when: 'Soon' },
-    { n: 12, track: true, href: 'chapters/12-try-these-with-your-group-or-class.html', lock: 'part3', title: 'Try these with your mentor group or class', when: 'Soon' },
+    { n: 8, track: true, href: 'chapters/08-theres-a-name-for-this.html', lock: 'part3', title: 'There’s a name for this', when: 'Dec 1' },
+    { n: 9, track: true, href: 'chapters/09-label-the-assignments-that-count.html', lock: 'part3', title: 'Label the assignments that count', when: 'Dec 1' },
+    { n: 10, track: true, href: 'chapters/10-help-your-students-use-ai-well.html', lock: 'part3', title: 'Help your students use AI well', when: 'Dec 1' },
+    { n: 11, track: true, href: 'chapters/11-talk-with-your-students-about-ai.html', lock: 'part3', title: 'Talk with your students about AI', when: 'Dec 1' },
+    { n: 12, track: true, href: 'chapters/12-try-these-with-your-group-or-class.html', lock: 'part3', title: 'Try these with your mentor group or class', when: 'Dec 1' },
     { part: 'Appendix' },
     { href: 'resources/label-maker.html', title: 'Assignment label maker' },
     { href: 'resources/keep-learning.html', title: 'Keep learning' },
@@ -64,6 +100,19 @@
     if (item.href && here.slice(-item.href.length) === item.href) currentItem = item;
   });
   if (currentItem && currentItem.track && getStatus(currentItem.href) !== 'done') setStatus(currentItem.href, 'started');
+
+  // A locked chapter opened by direct link shows a notice instead of its content
+  if (currentItem && isLocked(currentItem.lock)) {
+    var sheet = document.querySelector('.sheet');
+    if (sheet) {
+      sheet.innerHTML = '<p class="kicker">Not open yet</p><h1>' + esc(currentItem.title) + '</h1>' +
+        '<div class="card"><span class="card-label">This chapter opens ' + esc(RELEASE_TEXT[currentItem.lock]) + '</span>' +
+        '<p>Come back then. In the meantime, Part 1 is open and ready for you.</p>' +
+        '<p><a class="btn" href="' + root + 'index.html#contents">Go to the contents</a></p></div>' + accessForm('access-page');
+      var nav = document.querySelector('.chapter-nav'); if (nav) nav.remove();
+      wireAccess(sheet);
+    }
+  }
 
   function renderToc() {
     if (!tocNav) return;
@@ -89,7 +138,8 @@
       html += '<li' + (item.sub ? ' class="sub"' : '') + '><a href="' + root + item.href + '"' +
         (current ? ' aria-current="page"' : '') + '>' + (item.sub ? '' : num) + '<span>' + esc(item.title) + sr + '</span></a></li>';
     });
-    tocNav.innerHTML = html + '</ol>';
+    tocNav.innerHTML = html + '</ol>' + (anyLocked() ? accessForm('access-toc') : '');
+    wireAccess(tocNav);
   }
   renderToc();
 
