@@ -63,7 +63,7 @@
     { part: 'Part 1 · Before we meet' },
     { n: 1, track: true, href: 'chapters/01-what-ai-can-and-cant-do.html', title: 'What AI tools can and can’t do' },
     { n: 2, track: true, href: 'chapters/02-try-it-for-you.html', title: 'Try it on something just for you' },
-    { n: 3, track: true, href: 'chapters/03-let-ai-take-your-test.html', title: 'Let AI take one of your tests' },
+    { n: 3, track: true, href: 'chapters/03-let-ai-take-your-test.html', title: 'Let AI try one of your assignments' },
     { sub: true, href: 'resources/sample-assignment.html', title: 'Ready-made case assignment' },
     { n: 4, track: true, href: 'chapters/04-a-quick-look-at-tilt.html', title: 'A quick look at TILT' },
     { part: 'Part 2 · When we meet' },
