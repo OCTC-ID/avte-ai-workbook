@@ -1,0 +1,29 @@
+@font-face { font-family: "Patrick Hand"; src: url("../fonts/patrick-hand-latin-400.woff2"); }
+body { font-family: sans-serif; line-height: 1.55; color: #1f2933; }
+h1, h2, h3, h4 { font-family: Georgia, serif; color: #144b8e; line-height: 1.25; }
+h1 { border-bottom: 3px solid #ef3340; padding-bottom: .25em; }
+a { color: #144b8e; }
+.kicker { font-size: .75em; letter-spacing: .08em; text-transform: uppercase; color: #c8102e; font-weight: bold; margin-bottom: .2em; }
+.chapter-time, .cmeta, .meta { color: #4d5966; font-size: .9em; }
+.objective-tag { border: 1px solid #144b8e; border-radius: 6px; padding: .5em .8em; margin: 1em 0; }
+.objective-tag .verb { display: block; font-size: .75em; text-transform: uppercase; letter-spacing: .08em; color: #144b8e; font-weight: bold; }
+.card { border-left: 4px solid #144b8e; background: #f4f6f9; padding: .6em .9em; margin: 1em 0; }
+.card.stop { border-left-color: #c8102e; }
+.card-label, .step-label, .label { display: block; font-size: .75em; text-transform: uppercase; letter-spacing: .08em; font-weight: bold; color: #c8102e; }
+.pad { background: #fffbe6; border-left: 3px solid #ef3340; padding: .4em .8em; margin: .6em 0; }
+.q { font-weight: bold; margin: .2em 0; }
+.hint, .opts { display: block; color: #4d5966; font-size: .9em; }
+.choice-list { margin: .2em 0 .4em; }
+pre { white-space: pre-wrap; font-family: monospace; font-size: .85em; background: #f4f6f9; padding: .6em .8em; border: 1px solid #d5dbe3; }
+.note { color: #4d5966; font-size: .9em; font-style: italic; }
+.worked { background: #fffbe6; border-left: 3px solid #ef3340; padding: .6em .9em; }
+.worked li, .worked .worked-body p { font-family: "Patrick Hand", "Segoe Print", sans-serif; font-size: 1.15em; color: #1d2a4a; }
+.worked strong { font-family: sans-serif; font-size: .85em; }
+table { border-collapse: collapse; width: 100%; font-size: .9em; }
+th, td { border: 1px solid #d5dbe3; padding: .3em .5em; vertical-align: top; text-align: left; }
+blockquote, .pull-quote { border-left: 3px solid #ef3340; margin: 1em 0; padding-left: .9em; }
+.cnum { font-weight: bold; color: #c8102e; margin-right: .4em; }
+
+pre { white-space: pre-wrap; }
+div.kicker p, div.step-label p, div.q p, div.note p { margin: .2em 0; }
+.worked .worked-from p { font-family: sans-serif; font-size: 1em; color: #1f2933; }
