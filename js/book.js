@@ -5,7 +5,7 @@
 
   /* ---- Edition: change these two lines when you publish an update ---- */
   var VERSION = 'Fall 2026';
-  var LAST_UPDATED = 'November 8, 2026';
+  var LAST_UPDATED = 'November 25, 2026';
   Array.prototype.forEach.call(document.querySelectorAll('[data-version]'), function (el) { el.textContent = VERSION; });
   Array.prototype.forEach.call(document.querySelectorAll('[data-updated]'), function (el) { el.textContent = LAST_UPDATED; });
 
@@ -19,7 +19,7 @@
     part3: '2026-12-01T20:15:00-05:00'   // 8:15 pm ET / 7:15 pm CT, when the session ends
   };
   var RELEASE_TEXT = { part2: 'December 1 at 4:00 pm Eastern (3:00 pm Central)', part3: 'December 1 at 8:15 pm Eastern (7:15 pm Central), after our session' };
-  var PASS_HASH = '76f00c2dd3e8736de1df02aa014a737606fe8b21a70ee7d2433333edbbbdd604';
+  var PASS_HASH = 'bd44280d67536471e51198787e613428121507a663095bcac3d1f8e985e0db11';
   try { if (/[?&]preview=0/.test(location.search)) localStorage.removeItem('avte-wb:preview'); } catch (e) {}
   function previewing() { try { return localStorage.getItem('avte-wb:preview') === PASS_HASH; } catch (e) { return false; } }
   function isLocked(lock) {
@@ -157,6 +157,20 @@
     li.classList.add('pending');
     var link = li.querySelector('h3 a');
     if (link) link.parentNode.textContent = link.textContent;
+  });
+
+  // Downloads hold the whole book, so they open with Part 3
+  Array.prototype.forEach.call(document.querySelectorAll('.download-card[data-lock]'), function (a) {
+    var lock = a.getAttribute('data-lock');
+    if (!isLocked(lock)) return;
+    a.setAttribute('data-file', a.getAttribute('href'));
+    a.removeAttribute('href');
+    a.removeAttribute('download');
+    a.setAttribute('aria-disabled', 'true');
+    var note = document.createElement('span');
+    note.className = 'soon-note';
+    note.textContent = 'Available ' + RELEASE_TEXT[lock];
+    a.appendChild(note);
   });
 
   // Same marks on the cover's contents cards
